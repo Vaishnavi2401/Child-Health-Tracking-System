@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+            color: blue;
+        }
+        div{
+            background-color: azure;
+            width: 30%;
+            height: 300px;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        p{
+            text-align: justify;
+            width: 100%;
+        }
+        label{
+            background-color: blanchedalmond;
+            color: black;
+            padding: 5pt;
+            border-radius: 10px;
+        }
+        h1{
+            color: black;
+        }
+    </style>
+    <script src="./JavaScript/Scripts/LoginDb.js"></script>
+    <script>
+        let db = new LoginPage();
+        //let $get = (elementId) => document.getElementById(elementId).value;
+        
+        
+        // function saveRecord(){
+            
+        // }
+        function saveAndEnter(){
+            //let attempts = 3;
+            let id = document.getElementById("txtId").value;
+            let pwd = document.getElementById("txtPwd").value;
+            // let id = $get("txtId");
+            // let pwd = $get("txtPwd");
+            if(id == "asdf" && pwd == "12345"){
+                alert("Login Successfully!")
+                window.location = "file:///C:/Users/V.VIJAY%20KUMAR/Desktop/WPT/Assignment-1.html"
+                //return false;
+            }
+            else{
+                //attempts --;
+                alert("Invalid Id or Password");
+            
+                // if(attempts == 0){
+                //     document.getElementById("txtId").disabled = true;
+                //     document.getElementById("txtPwd").disabled = true;
+                //     return false;
+                // }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1 id="title" style="color: blue; text-align: center; font-style: inherit; ">CHILD HEALTH SCREENING</h1>
+    <hr>
+    <div id="txt">
+        <h1>Enter Details</h1>
+        <hr>
+        <form>
+            <label>Login ID</label>
+            <p><input id="txtId" type="text" placeholder="Enter the UserId / Mobile no." width="100%" required/></p>
+            <label>Password</label>
+            <p><input id="txtPwd" type="password" placeholder="Enter the password" required/></p>
+            <button type="button" onclick="saveAndEnter()"> Login </button>
+        </form>
+    </div>
+</body>
+</html>
