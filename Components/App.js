@@ -2,42 +2,35 @@ import './App.css';
 import './login.css';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Link} from "react-router-dom";
-import Dashboard from './Dashboard.js';
+import { Link } from "react-router-dom";
+import Dashboard from './Dashboard';
 //import { Link } from 'gatsby';
 //import bootstrap from 'bootstrap';
 import Button from '@mui/material/Button';
 import './Dashboard.js';
-
-
+import Login from './login';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import HospitalList from './HospitalList';
+import UserList from './UserList';
 
 function App() {
   return (
-    <div class="container-fluid login">
-        <div className="row">
-            <div className="col-12 col-sm-6 col-md-3">
-        <form className="login-form">
-            <div className="mb-3">
-              <label htmlFor="inputPhone" className="form-label">Phone Number</label>
-              <input type="text" className="form-control" id="inputPhone" aria-describedby="emailHelp"></input>
-            </div>
-            <div className="mb-3">
-              <label htmlFor="loginPassword" className="form-label">Password</label>
-              <input type="password" className="form-control" id="loginPassword"></input>
-            </div>
-            <div className="mb-3 form-check">
-              <input type="checkbox" className="form-check-input" id="exampleCheck1"></input>
-              <label className="form-check-label" htmlFor="exampleCheck1">Remember me</label>
-            </div>
-            
-            <button type="submit" onclick = "location.href =" className="btn btn-primary login-button">Login</button>
-            
-          </form>
-        </div>
+    <div>
+      <Router>
+      <Routes>
+      <Route  exact path="/" element = {<Login/>}/> 
+      <Route  exact path="/Dashboard" element = {<Dashboard/>}/> 
+      <Route  exact path="/HospitalList" element = {<HospitalList/>}/>    
+      <Route  exact path="/UserList" element = {<UserList/>}/>  
+      </Routes>
+      </Router> 
+       
     </div>
-    </div>
-
-    
   );
 }
 

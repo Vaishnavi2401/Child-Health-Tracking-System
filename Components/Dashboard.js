@@ -1,18 +1,24 @@
 import './App.css';
 import React from 'react';
 import Header from './Header';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Redirect,
+  } from "react-router-dom";
 
 //import bootstrap from 'bootstrap';
 
 
-function Dashboard () {
+const Dashboard = () => {
   return (
     <div>
-    <Header/>
     
+    <Header/>
     
     </div>
   );
 }
 
-export default Dashboard();
+export default Dashboard;

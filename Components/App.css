@@ -50,6 +50,32 @@
   text-align: center;
   width: 100%;
 }
+.body-Content2 {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  margin-left: 100px;
+  margin-top: 10px;
+  
+  }
+  
+  table {
+  border: 2px solid black;
+  background-color: antiquewhite;
+  width: 90%;
+  }
+  
+  th {
+  text-align: left; 
+  text-align: center;  
+  border-bottom: 1px solid red;
+  }
+  
+  td {
+  text-align: center;
+  border-bottom: 1px solid red;
+  }
+
 
 
 @keyframes App-logo-spin {
