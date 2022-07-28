@@ -60,7 +60,6 @@ const Header = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-        <TemporaryDrawer></TemporaryDrawer>
         <div id="App-bar">
           <Typography
             variant="h4"

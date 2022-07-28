@@ -1,0 +1,15 @@
+.Table{
+     width: 97%; 
+     margin-left: 20px;
+     margin-top: 30px;
+}
+.Table-Container{
+    max-height: 440 ;
+
+}
+.Table-Row{
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.Table-Row:hover{
+    background-color: rgb(131, 33, 33);
+}

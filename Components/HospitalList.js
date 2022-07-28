@@ -1,85 +1,136 @@
 import './App.css';
+import './table.css';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './Header';
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Redirect,
-  } from "react-router-dom";
-//import Table from 'react-bootstrap/Table';
+//import Header from './Header';
 import { styled } from '@mui/material/styles';
-//import Table from '@mui/material/Table';
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
+import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import TemporaryDrawer from './navbar';
 
-//import bootstrap from 'bootstrap';
+const columns = [
+  { id: 'name', label: 'Name', minWidth: 170 },
+  { id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
+  {
+    id: 'population',
+    label: 'Population',
+    minWidth: 170,
+    align: 'right',
+    format: (value) => value.toLocaleString('en-US'),
+  },
+  {
+    id: 'size',
+    label: 'Size\u00a0(km\u00b2)',
+    minWidth: 170,
+    align: 'right',
+    format: (value) => value.toLocaleString('en-US'),
+  },
+  {
+    id: 'density',
+    label: 'Density',
+    minWidth: 170,
+    align: 'right',
+    format: (value) => value.toFixed(2),
+  },
+];
 
+function createData(name, code, population, size) {
+  const density = population / size;
+  return { name, code, population, size, density };
+}
 
-
-const data = [
-{ SrNo: 1, ClgRefID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
-{ SrNo: 1, ClgRefID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
-{ SrNo: 1, ClgRefID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
-{ SrNo: 1, ClgRefID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
-{ SrNo: 1, ClgRefID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
-{ SrNo: 1, ClgRefID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
-{ SrNo: 1, ClgRefID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
-{ SrNo: 1, ClgRefID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
-{ SrNo: 1, ClgRefID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
-{ SrNo: 1, ClgRefID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
-
-]
+const rows = [
+  createData('India', 'IN', 1324171354, 3287263),
+  createData('China', 'CN', 1403500365, 9596961),
+  createData('Italy', 'IT', 60483973, 301340),
+  createData('United States', 'US', 327167434, 9833520),
+  createData('Canada', 'CA', 37602103, 9984670),
+  createData('Australia', 'AU', 25475400, 7692024),
+  createData('Germany', 'DE', 83019200, 357578),
+  createData('Ireland', 'IE', 4857000, 70273),
+  createData('Mexico', 'MX', 126577691, 1972550),
+  createData('Japan', 'JP', 126317000, 377973),
+  createData('France', 'FR', 67022000, 640679),
+  createData('United Kingdom', 'GB', 67545757, 242495),
+  createData('Russia', 'RU', 146793744, 17098246),
+  createData('Nigeria', 'NG', 200962417, 923768),
+  createData('Brazil', 'BR', 210147125, 8515767),
+];
 
 export default function HospitalList() {
-	
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-	return (
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+  return (
+    <div>
+    <TemporaryDrawer/>
+    <Paper className="Table">
         <div>
-        <Header/>
-        
-        <div className="body-Content2">
-        
-    
-        <table>
-        
-            <tr>
                 <th colspan="5" id="show">Show<input type="number" size="10" defaultValue="10"></input>Entries</th>
                 <th colspan="3" id="search">Search<input size="10"></input></th>
-            </tr>
-            {/* <hr> */}
-            <tr>
-                <th>Sr. No</th>
-                <th>Clg Ref ID</th>
-                <th>User Name</th>
-                <th>Mobile No</th>
-                <th>Email</th>
-                <th>Group</th>
-                <th>Status</th>
-                <th>Actions</th>
-            </tr>
-    
-            {data.map((val, key) => {
-            return (
-                <tr key={key}>
-                <td>{val.SrNo}</td>
-                <td>{val.ClgRefID}</td>
-                <td>{val.UserName}</td>
-                <td>{val.MobileNo}</td>
-                <td>{val.Email}</td>
-                <td>{val.Group}</td>
-                <td>{val.Status}</td>
-                <td>{val.Actions}</td>
-                </tr>
-            )
-            })}
-        </table>
         </div>
-        </div>
-    );
-    }
+      
+      
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              {columns.map((column) => (
+                <TableCell
+                  key={column.id}
+                  align={column.align}
+                  style={{ minWidth: column.minWidth }}
+                >
+                  {column.label}
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row) => {
+                return (
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code} className="Table-Row">
+                    {columns.map((column) => {
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id} align={column.align}>
+                          {column.format && typeof value === 'number'
+                            ? column.format(value)
+                            : value}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
+          </TableBody>
+        </Table>
+      <TablePagination
+        rowsPerPageOptions={[10, 25, 100, 500]}
+        component="div"
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
+    </Paper>
+    </div>
+  );
+}
