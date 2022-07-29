@@ -1,8 +1,10 @@
 import './App.css';
+import './table.css';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import Header from './Header';
 import TemporaryDrawer from './navbar';
+import { useNavigate } from "react-router-dom";
 import {
     BrowserRouter as Router,
     Routes,
@@ -39,11 +41,15 @@ const data = [
 
 export default function UserList() {
 	
-
+    const navLog = useNavigate();
 	return (
         <div>
         <TemporaryDrawer/>
-        
+        <div>
+            <button type="submit" onClick ={() => {navLog("/RegisterUser");}} className="btn btn-primary add-button">
+                Add New User
+             </button>
+        </div>
         <div className="body-Content2">
         
     

@@ -17,6 +17,7 @@ import {
 } from "react-router-dom";
 import HospitalList from './HospitalList';
 import UserList from './UserList';
+import RegisterUser from './RegisterUser';
 
 function App() {
   return (
@@ -26,7 +27,8 @@ function App() {
       <Route  exact path="/" element = {<Login/>}/> 
       <Route  exact path="/Dashboard" element = {<Dashboard/>}/> 
       <Route  exact path="/HospitalList" element = {<HospitalList/>}/>    
-      <Route  exact path="/UserList" element = {<UserList/>}/>  
+      <Route  exact path="/UserList" element = {<UserList/>}/> 
+      <Route  exact path="/RegisterUser" element = {<RegisterUser/>}/>  
       </Routes>
       </Router> 
        
