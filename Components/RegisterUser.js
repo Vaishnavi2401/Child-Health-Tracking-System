@@ -95,7 +95,7 @@ export default function RegisterUser(){
           <MenuItem value={30}>Expert</MenuItem>
         </Select>
       </FormControl>
-      <TextField id="outlined-basic" label="Ref ID" variant="outlined" />
+      <TextField id="outlined-basic" label="User ID" variant="outlined" />
       <TextField id="outlined-basic" label="Password" variant="outlined" />
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Gender</InputLabel>

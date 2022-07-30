@@ -16,12 +16,17 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
-
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
+import PersonIcon from '@mui/icons-material/Person';
+import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
+import AssessmentIcon from '@mui/icons-material/Assessment';
 
 const drawerWidth = 240;
 
@@ -178,7 +183,7 @@ export default function TemporaryDrawer() {
         <ListItem disablePadding>
           <ListItemButton component="a" href="/Dashboard">
               <ListItemIcon>
-                <InboxIcon />
+                <DashboardIcon />
               </ListItemIcon>
               <ListItemText primary="Dashboard" />
             </ListItemButton>
@@ -187,16 +192,16 @@ export default function TemporaryDrawer() {
           <ListItem disablePadding>
           <ListItemButton component="a" href="#simple-list">
               <ListItemIcon>
-              <InboxIcon />
+              <PeopleAltIcon />
               </ListItemIcon>
               <ListItemText primary="Children List" />
             </ListItemButton>
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-          <ListItemButton component="a" href="#simple-list">
+          <ListItemButton component="a" href="/BasicScreening">
               <ListItemIcon>
-                <InboxIcon />
+                <MonitorHeartIcon/>
               </ListItemIcon>
               <ListItemText primary="Screening" />
             </ListItemButton>
@@ -205,7 +210,7 @@ export default function TemporaryDrawer() {
           <ListItem disablePadding>
           <ListItemButton component="a" href="/HospitalList">
               <ListItemIcon>
-                <InboxIcon />
+                <LocalHospitalIcon/>
               </ListItemIcon>
               <ListItemText primary="Hospital List" />
             </ListItemButton>
@@ -214,7 +219,7 @@ export default function TemporaryDrawer() {
           <ListItem disablePadding>
           <ListItemButton component="a" href="/UserList">
               <ListItemIcon>
-                <InboxIcon />
+                <PersonIcon/>
               </ListItemIcon>
               <ListItemText primary="User List" />
             </ListItemButton>
@@ -223,16 +228,16 @@ export default function TemporaryDrawer() {
           <ListItem disablePadding>
           <ListItemButton component="a" href="#simple-list">
               <ListItemIcon>
-                <InboxIcon />
+                <MedicalInformationIcon />
               </ListItemIcon>
-              <ListItemText primary="Child Report" />
+              <ListItemText primary="Child Healthcard" />
             </ListItemButton>
           </ListItem>
           <Divider />
           <ListItem disablePadding>
           <ListItemButton component="a" href="#simple-list">
               <ListItemIcon>
-                <InboxIcon />
+                <AssessmentIcon />
               </ListItemIcon>
               <ListItemText primary="Report" />
             </ListItemButton>

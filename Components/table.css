@@ -28,3 +28,15 @@
     margin-left: 80px;
     margin-right: 10px;
 }
+.screening-btn{
+    background-color: #5aba4a;
+    border-color: #5aba4a;
+}
+.screening-btn:hover{
+    background-color: #3e9c32;
+    border-color: #3e9c32;
+}
+.screening-btn::after{
+    background-color: #f37336;
+    border-color: #f37336;
+}
