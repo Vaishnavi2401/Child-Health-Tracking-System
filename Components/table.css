@@ -1,42 +1,53 @@
 .Table{
-     width: 97%; 
-     margin-left: 20px;
-     margin-top: 30px;
+    width: 100%; 
+    margin-left: 20px;
+    margin-top: 30px;
 }
 .Table-Container{
-    max-height: 440 ;
+   max-height: 440px ;
 
 }
 .Table-Row{
-    background-color: rgba(255, 255, 255, 0.8);
+   background-color: rgba(255, 255, 255, 0.8);
 }
 .Table-Row:hover{
-    background-color: rgb(131, 33, 33);
+   background-color: rgb(131, 33, 33);
 }
 .add-button{
-    background-color: #1976d2 ;
-    position: absolute;
-    right: 20px;
-    top: 80px;
+   background-color: #1976d2 ;
+   position: absolute;
+   right: 20px;
+   top: 80px;
+}
+.save-button{
+   background-color: #1976d2 ;
+   position: absolute;
+   left: 600px;
+   margin: 20px;
+}
+.screening-button{
+   background-color: #1976d2 ;
+   position: absolute;
+   left: 20px;
+   margin: 20px;
 }
 .page-head{
-    position: relative;
-    left:80px;
-    top: -10px ;
+   position: relative;
+   left:80px;
+   top: -10px ;
 }
 .form-add{
-    margin-left: 80px;
-    margin-right: 10px;
+   border-color: #1976d2;
+   margin-left: 80px;
+   margin-right: 10px;
 }
-.screening-btn{
-    background-color: #5aba4a;
-    border-color: #5aba4a;
+.page-subhead{
+   position: relative;
+   left:10px;
+   margin: 5px;
+   /* margin-top: 10px; */
+   padding-top: 10px;
 }
-.screening-btn:hover{
-    background-color: #3e9c32;
-    border-color: #3e9c32;
-}
-.screening-btn::after{
-    background-color: #f37336;
-    border-color: #f37336;
+.address{
+   width: 100px;
 }
