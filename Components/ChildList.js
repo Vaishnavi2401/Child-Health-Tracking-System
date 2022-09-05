@@ -88,7 +88,7 @@ const data = [
 
 ]
 
-export default function UserList() {
+export default function ChildList() {
 
     const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -109,8 +109,8 @@ export default function UserList() {
         <TemporaryDrawer/>
         <h4 className='page-head'>User List</h4>
         <div>
-            <button type="submit" onClick ={() => {navLog("/RegisterUser");}} className="btn btn-primary add-button">
-                Add New User
+            <button type="submit" onClick ={() => {navLog("/AddNewChild");}} className="btn btn-primary add-button">
+                Add New Child
              </button>
         </div>
         <div className="">

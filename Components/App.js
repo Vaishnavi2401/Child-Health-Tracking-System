@@ -28,6 +28,8 @@ import Vitals from './Vitals';
 import BMIS from './BMIS';
 import Dental from './Dental';
 import Vision from './Vision';
+import AddNewChild from './AddNewChild';
+import ChildList from './ChildList';
 
 function App() {
   return (
@@ -48,7 +50,9 @@ function App() {
       <Route  exact path="/Immunisation" element = {<Immunisation/>}/>   
       <Route  exact path="/Psychological" element = {<Psychological/>}/>
       <Route  exact path="/Vision" element = {<Vision/>}/>     
-      <Route  exact path="/Vitals" element = {<Vitals/>}/> 
+      <Route  exact path="/Vitals" element = {<Vitals/>}/>
+      <Route  exact path="/AddNewChild" element = {<AddNewChild/>}/>
+      <Route  exact path="/ChildList" element = {<ChildList/>}/>    
       </Routes>
       </Router> 
        

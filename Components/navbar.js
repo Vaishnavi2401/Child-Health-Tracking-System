@@ -27,6 +27,7 @@ import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
 import PersonIcon from '@mui/icons-material/Person';
 import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
 import AssessmentIcon from '@mui/icons-material/Assessment';
+import './table.css';
 
 const drawerWidth = 240;
 
@@ -181,16 +182,16 @@ export default function TemporaryDrawer() {
         <Divider />
         <List>
         <ListItem disablePadding>
-          <ListItemButton component="a" href="/Dashboard">
+          <ListItemButton component="a" href="/Dashboard" >
               <ListItemIcon>
                 <DashboardIcon />
               </ListItemIcon>
-              <ListItemText primary="Dashboard" />
+              <ListItemText  primary="Dashboard" />
             </ListItemButton>
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-          <ListItemButton component="a" href="#simple-list">
+          <ListItemButton component="a" href="/ChildList">
               <ListItemIcon>
               <PeopleAltIcon />
               </ListItemIcon>

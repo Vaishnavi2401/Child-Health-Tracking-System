@@ -127,6 +127,9 @@ export default function RegisterUser(){
       </FormControl>
          </Box>
          </Paper>
+         <button type="submit" onClick ={() => {}} className="btn btn-primary save-btn">
+                Submit
+          </button>
         </div>
       </div>
     </div>

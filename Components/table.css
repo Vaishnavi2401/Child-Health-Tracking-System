@@ -1,6 +1,6 @@
 .Table{
-     width: 97%; 
-     margin-left: 20px;
+     width: 92%; 
+     margin-left: 80px;
      margin-top: 30px;
 }
 .Table-Container{
@@ -23,6 +23,8 @@
     position: relative;
     left:80px;
     top: -10px ;
+    font-weight: 600;
+    font-size: 25px ;
 }
 .form-add{
     margin-left: 80px;
@@ -39,4 +41,18 @@
 .screening-btn::after{
     background-color: #f37336;
     border-color: #f37336;
+}
+.save-btn{
+    background-color: #1976d2 ;
+    position: absolute;
+    left: 550px;
+    margin: 30px;
+    width: 200px;
+    height: 45px;
+    /* font-size:18px;
+    font-weight: 500;*/
+}
+.nav-a{
+    font-weight: 500;
+    font-size: large;
 }
