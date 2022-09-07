@@ -22,7 +22,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
 import PersonIcon from '@mui/icons-material/Person';
 import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
@@ -205,15 +204,6 @@ export default function TemporaryDrawer() {
                 <MonitorHeartIcon/>
               </ListItemIcon>
               <ListItemText primary="Screening" />
-            </ListItemButton>
-          </ListItem>
-          <Divider />
-          <ListItem disablePadding>
-          <ListItemButton component="a" href="/HospitalList">
-              <ListItemIcon>
-                <LocalHospitalIcon/>
-              </ListItemIcon>
-              <ListItemText primary="Hospital List" />
             </ListItemButton>
           </ListItem>
           <Divider />

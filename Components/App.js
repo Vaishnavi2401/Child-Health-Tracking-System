@@ -15,7 +15,6 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import HospitalList from './HospitalList';
 import UserList from './UserList';
 import RegisterUser from './RegisterUser';
 import BasicScreening from './BasicScreening';
@@ -38,7 +37,6 @@ function App() {
       <Routes>
       <Route  exact path="/" element = {<Login/>}/> 
       <Route  exact path="/Dashboard" element = {<Dashboard/>}/> 
-      <Route  exact path="/HospitalList" element = {<HospitalList/>}/>    
       <Route  exact path="/UserList" element = {<UserList/>}/> 
       <Route  exact path="/RegisterUser" element = {<RegisterUser/>}/>
       <Route  exact path="/BasicScreening" element = {<BasicScreening/>}/> 

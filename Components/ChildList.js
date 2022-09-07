@@ -11,8 +11,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import EditIcon from '@mui/icons-material/Edit';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import DeleteIcon from '@mui/icons-material/Delete';
-import {TableBody, IconButton, InputBase,
-        TableCell, TableContainer, TableHead, 
+import {TableBody, IconButton, InputBase, TextField, MenuItem, FormControl,
+        TableCell, TableContainer, TableHead, Box, InputLabel, Select,
         TableRow, Paper, Table, TablePagination, tableCellClasses} from '@mui/material';
 //import bootstrap from 'bootstrap';
 
@@ -39,7 +39,31 @@ const data = [
 { SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
 ]
 
-export default function UserList() {
+export default function ChildList() {
+
+  const [Project, setProject] = React.useState('');
+
+  const handleProject = (event) => {
+    setProject(event.target.value);
+  };
+
+  const [Block, setBlock] = React.useState('');
+
+  const handleBlock = (event) => {
+    setBlock(event.target.value);
+  };
+
+  const [Bit, setBit] = React.useState('');
+
+  const handleBit = (event) => {
+    setBit(event.target.value);
+  };
+
+  const [School, setSchool] = React.useState('');
+
+  const handleSchool = (event) => {
+    setSchool(event.target.value);
+  };
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -58,15 +82,98 @@ export default function UserList() {
 	return (
         <div>
         <TemporaryDrawer/>
-        <h4 className='page-head'>User List</h4>
+        <h4 className='page-head'>Child List</h4>
         <div>
-            <button type="submit" onClick ={() => {navLog("/RegisterUser");}} className="btn btn-primary add-button">
-                Add New User
+            <button type="submit" onClick ={() => {navLog("/AddNewChild");}} className="btn btn-primary add-button">
+                Add New Child
              </button>
         </div>
+        <div>
+        <Paper className="form-add">
+        <Box
+       component="form"
+         sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+         }}
+           noValidate
+          autoComplete="off"
+          >
+          <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Select Block</InputLabel>
+              <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={Block}
+              label="Select Block"
+              onChange={handleBlock}
+              >
+              <MenuItem value={10}>Ambegaon</MenuItem>
+              <MenuItem value={20}>Baramati</MenuItem>
+              <MenuItem value={30}>Bhor</MenuItem>
+              <MenuItem value={40}>Daund</MenuItem>
+              <MenuItem value={50}>Haveli</MenuItem>
+              <MenuItem value={60}>Indapur</MenuItem>
+              <MenuItem value={70}>Junnar</MenuItem>
+              <MenuItem value={80}>Khed</MenuItem>
+              <MenuItem value={90}>Maval</MenuItem>
+              <MenuItem value={100}>Mulshi</MenuItem>
+              <MenuItem value={110}>Pune</MenuItem>
+              <MenuItem value={120}>Purandar</MenuItem>
+              <MenuItem value={130}>Shirur</MenuItem>
+              <MenuItem value={140}>Velhe</MenuItem>
+              </Select>
+          </FormControl>
+          <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Select Project</InputLabel>
+              <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={Project}
+              label="Select Project"
+              onChange={handleProject}
+              >
+              <MenuItem value={10}>Admin</MenuItem>
+              <MenuItem value={20}>CHO</MenuItem>
+              <MenuItem value={30}>Expert</MenuItem>
+              </Select>
+          </FormControl>
+          <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Select Bit</InputLabel>
+              <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={Bit}
+              label="Select Bit"
+              onChange={handleBit}
+              >
+              <MenuItem value={10}>Admin</MenuItem>
+              <MenuItem value={20}>CHO</MenuItem>
+              <MenuItem value={30}>Expert</MenuItem>
+              </Select>
+          </FormControl>
+          <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Select School</InputLabel>
+              <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={School}
+              label="Select School"
+              onChange={handleSchool}
+              >
+              <MenuItem value={10}>Admin</MenuItem>
+              <MenuItem value={20}>CHO</MenuItem>
+              <MenuItem value={30}>Expert</MenuItem>
+              </Select>
+          </FormControl>
+          <button type="submit" onClick ={() => {}} className="btn btn-primary child-search" 
+          sx={{'& > :not(style)': { width: '10ch' },}}>
+                Search
+          </button>
+          </Box>
+          
+          </Paper>
+        </div>
         <div className="">
-        
-        <Paper className="Table-Paper">
         <div  component="form">
         <Row>
         <Col xs={6} md={4}>
@@ -74,38 +181,21 @@ export default function UserList() {
         <Col xs={6} md={4}>
         </Col>
         <Col xs={6} md={4}>
-          <div className='Search-div' sm>
-            <div className='Search' sm>
-              <Row>
-              <Col sm={8} className="search-col">
-              <InputBase
-              placeholder="Search User"
-              inputProps={{ 'aria-label': 'search user' }}
-              />
-               </Col>
-               <Col sm={4}>
-              <IconButton type="button" aria-label="search" className = 'search-icon'>
-              <SearchIcon />
-              </IconButton>
-              </Col>
-              </Row>
-              </div>
-              </div>
         </Col>
-      </Row>
-        
+        </Row>
         </div>
-        
+        <Paper className="Table-Paper">
         <Table stickyHeader aria-label="user list table" className="Table">
           <TableHead className='head-table'>
             <TableRow>
               <TableCell >Sr. No</TableCell>
-              <TableCell >User ID</TableCell>
-              <TableCell>User Name</TableCell>
-              <TableCell>Mobile No</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Group</TableCell>
-              <TableCell>Status</TableCell>
+              <TableCell >Child Name</TableCell>
+              <TableCell>Child Age</TableCell>
+              <TableCell>Block</TableCell>
+              <TableCell>Bit</TableCell>
+              <TableCell>School Name</TableCell>
+              <TableCell>Added By</TableCell>
+              <TableCell>Added Date</TableCell>
               <TableCell>Action</TableCell>
             </TableRow>
           </TableHead>
@@ -117,6 +207,7 @@ export default function UserList() {
             <TableCell className='col-table'>{row.MobileNo}</TableCell>
             <TableCell className='col-table'>{row.Email}</TableCell>
             <TableCell className='col-table'>{row.Group}</TableCell>
+            <TableCell className='col-table'>{row.Status}</TableCell>
             <TableCell className='col-table'>{row.Status}</TableCell>
             <TableCell className='col-table'>
             <EditIcon className="icon-edit"/>
