@@ -2,7 +2,7 @@ import './App.css';
 import './table.css';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import Header from './Header';
+import Healthcard from './Healthcard';
 import TemporaryDrawer from './navbar';
 import { useNavigate } from "react-router-dom";
 import {Container, Row, Col} from 'react-bootstrap';
@@ -17,24 +17,25 @@ import {TableBody, IconButton, InputBase, TextField, MenuItem, FormControl,
 //import bootstrap from 'bootstrap';
 
 const data = [
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-]
-
-export default function ChildList() {
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+  { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
+ 
+  ]
+export default function HealthcardList() {
 
   const [Block, setBlock] = React.useState('');
 
@@ -65,12 +66,7 @@ export default function ChildList() {
 	return (
         <div>
         <TemporaryDrawer/>
-        <h4 className='page-head'>Child List</h4>
-        <div>
-            <button type="submit" onClick ={() => {navLog("/AddNewChild");}} className="btn btn-primary add-button">
-                Add New Child
-             </button>
-        </div>
+        <h4 className='page-head'>Healthcard information List</h4>
         <div>
         <Row>
         <Col sm={7}>
@@ -168,28 +164,18 @@ export default function ChildList() {
           <TableHead className='head-table'>
             <TableRow>
               <TableCell >Sr. No</TableCell>
-              <TableCell >Child Name</TableCell>
-              <TableCell>Child Age</TableCell>
-              <TableCell>Block</TableCell>
-              <TableCell>School Name</TableCell>
-              <TableCell>Added By</TableCell>
-              <TableCell>Added Date</TableCell>
+              <TableCell >Child ID</TableCell>
+              <TableCell>Child Name</TableCell>
               <TableCell>Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
           {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (<TableRow key={row.UserID}>
             <TableCell className='col-table'>{row.SrNo}</TableCell>
+            <TableCell className='col-table'>{row.ChildID}</TableCell>
             <TableCell className='col-table'>{row.ChildName}</TableCell>
-            <TableCell className='col-table'>{row.ChildAge}</TableCell>
-            <TableCell className='col-table'>{row.Block}</TableCell>
-            <TableCell className='col-table'>{row.SchoolName}</TableCell>
-            <TableCell className='col-table'>{row.AddedBy}</TableCell>
-            <TableCell className='col-table'>{row.AddedDate}</TableCell>
             <TableCell className='col-table'>
-            <EditIcon className="icon-edit"/>
-            <VisibilityIcon className="icon-view"/>
-            <DeleteIcon className="icon-delete"/>
+            <VisibilityIcon className="icon-view" onClick ={() => {navLog("/Healthcard");}} />
             </TableCell>
           </TableRow>))}
             

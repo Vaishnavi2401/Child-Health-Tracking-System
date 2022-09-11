@@ -29,6 +29,9 @@ import Dental from './Dental';
 import Vision from './Vision';
 import AddNewChild from './AddNewChild';
 import ChildList from './ChildList';
+import ScreeningList from './ScreeningList';
+import HealthcardList from './HealthcardList';
+import Healthcard from './Healthcard';
 
 function App() {
   return (
@@ -51,6 +54,9 @@ function App() {
       <Route  exact path="/Vitals" element = {<Vitals/>}/>
       <Route  exact path="/AddNewChild" element = {<AddNewChild/>}/>
       <Route  exact path="/ChildList" element = {<ChildList/>}/>    
+      <Route  exact path="/ScreeningList" element = {<ScreeningList/>}/> 
+      <Route  exact path="/HealthcardList" element = {<HealthcardList/>}/> 
+      <Route  exact path="/Healthcard" element = {<Healthcard/>}/> 
       </Routes>
       </Router> 
        

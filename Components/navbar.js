@@ -199,7 +199,7 @@ export default function TemporaryDrawer() {
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-          <ListItemButton component="a" href="/BasicScreening">
+          <ListItemButton component="a" href="/ScreeningList">
               <ListItemIcon>
                 <MonitorHeartIcon/>
               </ListItemIcon>
@@ -217,7 +217,7 @@ export default function TemporaryDrawer() {
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-          <ListItemButton component="a" href="#simple-list">
+          <ListItemButton component="a" href="/HealthcardList">
               <ListItemIcon>
                 <MedicalInformationIcon />
               </ListItemIcon>

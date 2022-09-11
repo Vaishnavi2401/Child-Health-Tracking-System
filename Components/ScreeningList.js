@@ -17,24 +17,27 @@ import {TableBody, IconButton, InputBase, TextField, MenuItem, FormControl,
 //import bootstrap from 'bootstrap';
 
 const data = [
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
-{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
+{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
 ]
 
-export default function ChildList() {
+export default function ScreeningList() {
 
   const [Block, setBlock] = React.useState('');
 
@@ -42,6 +45,7 @@ export default function ChildList() {
     setBlock(event.target.value);
   };
 
+  
   const [School, setSchool] = React.useState('');
 
   const handleSchool = (event) => {
@@ -60,17 +64,13 @@ export default function ChildList() {
     setPage(0);
   };
 
+	const navLog = useNavigate();
 	
-    const navLog = useNavigate();
-	return (
+    return (
         <div>
         <TemporaryDrawer/>
-        <h4 className='page-head'>Child List</h4>
-        <div>
-            <button type="submit" onClick ={() => {navLog("/AddNewChild");}} className="btn btn-primary add-button">
-                Add New Child
-             </button>
-        </div>
+        <h4 className='page-head'>Screening List</h4>
+        
         <div>
         <Row>
         <Col sm={7}>
@@ -168,28 +168,29 @@ export default function ChildList() {
           <TableHead className='head-table'>
             <TableRow>
               <TableCell >Sr. No</TableCell>
+              <TableCell>Child ID</TableCell>
               <TableCell >Child Name</TableCell>
-              <TableCell>Child Age</TableCell>
-              <TableCell>Block</TableCell>
+              <TableCell>Block Name</TableCell>
               <TableCell>School Name</TableCell>
-              <TableCell>Added By</TableCell>
-              <TableCell>Added Date</TableCell>
-              <TableCell>Action</TableCell>
+              <TableCell>Screening</TableCell>
+              <TableCell>Prescription</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
           {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (<TableRow key={row.UserID}>
             <TableCell className='col-table'>{row.SrNo}</TableCell>
+            <TableCell className='col-table'>{row.ChildID}</TableCell>
             <TableCell className='col-table'>{row.ChildName}</TableCell>
-            <TableCell className='col-table'>{row.ChildAge}</TableCell>
             <TableCell className='col-table'>{row.Block}</TableCell>
             <TableCell className='col-table'>{row.SchoolName}</TableCell>
-            <TableCell className='col-table'>{row.AddedBy}</TableCell>
-            <TableCell className='col-table'>{row.AddedDate}</TableCell>
             <TableCell className='col-table'>
-            <EditIcon className="icon-edit"/>
-            <VisibilityIcon className="icon-view"/>
-            <DeleteIcon className="icon-delete"/>
+            <EditIcon className="icon-edit"  onClick ={() => {navLog("/BasicScreening");}}/>
+            </TableCell>
+            <TableCell className='col-table'>
+                <button type="submit"  className="btn btn-primary Prescription-btn" 
+                sx={{'& > :not(style)': { width: '10ch' },}}>
+                Prescription
+                </button>
             </TableCell>
           </TableRow>))}
             
