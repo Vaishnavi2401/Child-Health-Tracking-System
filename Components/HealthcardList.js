@@ -3,6 +3,7 @@ import './table.css';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Healthcard from './Healthcard';
+import Healthcard_BasicScreening from './Healthcard_BasicScreening';
 import TemporaryDrawer from './navbar';
 import { useNavigate } from "react-router-dom";
 import {Container, Row, Col} from 'react-bootstrap';
@@ -175,7 +176,7 @@ export default function HealthcardList() {
             <TableCell className='col-table'>{row.ChildID}</TableCell>
             <TableCell className='col-table'>{row.ChildName}</TableCell>
             <TableCell className='col-table'>
-            <VisibilityIcon className="icon-view" onClick ={() => {navLog("/Healthcard");}} />
+            <VisibilityIcon className="icon-view" onClick ={() => {navLog("/Healthcard_BasicScreening");}} />
             </TableCell>
           </TableRow>))}
             
