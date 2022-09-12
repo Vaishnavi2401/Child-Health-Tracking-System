@@ -32,6 +32,14 @@ import ChildList from './ChildList';
 import ScreeningList from './ScreeningList';
 import HealthcardList from './HealthcardList';
 import Healthcard from './Healthcard';
+import Healthcard_BasicScreening from './Healthcard_BasicScreening';
+import Healthcard_BMI from './Healthcard_BMI';
+import Healthcard_Vital from './Healthcard_Vital';
+import Healthcard_Immunisation from './Healthcard_Immunisation';
+import Healthcard_Auditory from './Healthcard_Auditory';
+import Healthcard_Dental from './Healthcard_Dental';
+import Healthcard_Vision from './Healthcard_Vision';
+import Healthcard_Psychological from './Healthcard_Psychological';
 
 function App() {
   return (
@@ -57,6 +65,14 @@ function App() {
       <Route  exact path="/ScreeningList" element = {<ScreeningList/>}/> 
       <Route  exact path="/HealthcardList" element = {<HealthcardList/>}/> 
       <Route  exact path="/Healthcard" element = {<Healthcard/>}/> 
+      <Route  exact path="/Healthcard_BasicScreening" element = {<Healthcard_BasicScreening/>}/>
+      <Route  exact path="/Healthcard_BMI" element = {<Healthcard_BMI/>}/>  
+      <Route  exact path="/Healthcard_Vital" element = {<Healthcard_Vital/>}/> 
+      <Route  exact path="/Healthcard_Immunisation" element = {<Healthcard_Immunisation/>}/> 
+      <Route  exact path="/Healthcard_Auditory" element = {<Healthcard_Auditory/>}/> 
+      <Route  exact path="/Healthcard_Dental" element = {<Healthcard_Dental/>}/>
+      <Route  exact path="/Healthcard_Vision" element = {<Healthcard_Vision/>}/>
+      <Route  exact path="/Healthcard_Psychological" element = {<Healthcard_Psychological/>}/>      
       </Routes>
       </Router> 
        

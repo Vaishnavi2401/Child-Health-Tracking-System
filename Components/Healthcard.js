@@ -10,6 +10,7 @@ import {TableBody, IconButton, InputBase,
 //import bootstrap from 'bootstrap';
 import HealthcardList from './HealthcardList';
 import { useNavigate } from "react-router-dom";
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 const data = [
     { SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC" },
@@ -20,139 +21,40 @@ export default function Healthcard() {
     const navLog = useNavigate();
   return (
     <div>
-    <TemporaryDrawer/>
-    <div>
+    <div className='hlt-head'>
             <button type="submit" onClick ={() => {navLog("/HealthcardList");}} className="btn btn-primary back-button">
-               Back
+            <ArrowBackIosNewIcon/>
              </button>
+             <h3 className='healthcard-head'>Child Healthcard</h3>
     </div>
     <div className='Healthcard-Basic'>
             <Row>
             <Col sm={2}>
-                <img src='src/Images/child-default.png' className=''></img>
+                <img src='child-default.png' className='child-image'></img>
             </Col>
-            <Col sm={2}>Screening Information</Col>
-            <Col sm={2}>Screening Information</Col>
-            <Col sm={2}>Screening Information</Col>
-            <Col sm={2}>Screening Information</Col>
-            <Col sm={2}>Screening Information</Col>
+            <Col sm={2}>
+                <h6>Student ID</h6>
+                <h5 id="ChildId"></h5>
+                <h5 id="ChildName"></h5>
+            </Col>
+            <Col sm={2}>
+                <h6>Father's Name</h6>
+                <h5 id="ChildId"></h5>
+            </Col>
+            <Col sm={2}>
+                <h6>Gender</h6>
+                <h5 id="Gender"></h5>
+            </Col>
+            <Col sm={2}>
+                <h6>D.O.B</h6>
+                <h5 id="dob"></h5>
+            </Col>
+            <Col sm={2}>
+                <h6>Age</h6>
+                <h5><span id="age"></span>Years</h5>
+            </Col>
             </Row>
     </div>
-    <div>
-    
-    <Row>
-        <Col sm={3}>
-        <div>
-        <Row>
-            <Col sm={4}></Col>
-            <Col sm={8}><h5>Screening Information</h5></Col>
-            </Row>
-            <Row>
-            <Col sm={4}></Col>
-            <Col sm={8}><button type="submit" onClick ={() => {("#").show(); }} className="btn"><h6>Basic Screeinig</h6></button></Col>
-            </Row>
-            <Row>
-            <Col sm={4}></Col>
-            <Col sm={8}><button type="submit" onClick ={() => { }} className="btn"><h6>BMI Screening</h6></button></Col>
-            </Row>
-            <Row>
-            <Col sm={4}></Col>
-            <Col sm={8}><button type="submit" onClick ={() => { }} className="btn"><h6>Vital Screening</h6></button></Col>
-            </Row>
-            <Row>
-            <Col sm={4}></Col>
-            <Col sm={8}><button type="submit" onClick ={() => { }} className="btn"><h6>Immunisation Screening</h6></button></Col>
-            </Row>
-            <Row>
-            <Col sm={4}></Col>
-            <Col sm={8}><button type="submit" onClick ={() => { }} className="btn"><h6>Auditory Screening</h6></button></Col>
-            </Row>
-            <Row>
-            <Col sm={4}></Col>
-            <Col sm={8}><button type="submit" onClick ={() => { }} className="btn"><h6>Dental Checkup</h6></button></Col>
-            </Row>
-            <Row>
-            <Col sm={4}></Col>
-            <Col sm={8}><button type="submit" onClick ={() => { }} className="btn"><h6>Vision Screening</h6></button></Col>
-            </Row>
-            <Row>
-            <Col sm={4}></Col>
-            <Col sm={8}><button type="submit" onClick ={() => { }} className="btn"><h6>Psychological Screening</h6></button></Col>
-            </Row>
-
-        </div>
-        </Col>
-        <Col sm={9}>
-        <div className='healthcard-report'>
-        <h5>Basic Screening</h5>
-        <div>
-        <p> </p>
-        <h6>General Examination</h6>
-        <table className="table table-bordered table-ge">
-            <tbody>
-            <tr>
-            <th>Head / Scalp</th>
-            <td>NAD</td>
-            <th>Nose</th>
-            <td>NAD</td>
-            </tr>
-            <tr>
-            <th>Neck</th>
-            <td>NAD</td>
-            <th>Skin Colour</th>
-            <td>NAD</td>
-            </tr>
-            <tr>
-            <th>Skin Texture</th>
-            <td>NAD</td>
-            <th>Skin Lesions</th>
-            <td>NAD</td>
-            </tr>
-            <tr>
-            <th>Mouth Lips</th>
-            <td>NAD</td>
-            <th>Mouth Dentition</th>
-            <td>NAD</td>
-            </tr>
-            <tr>
-            <th>Mouth Gums</th>
-            <td>NAD</td>
-            <th>Mouth Oral Mucosa</th>
-            <td>NAD</td>
-            </tr>
-            <tr>
-            <th>Mouth Tongue</th>
-            <td>NAD</td>
-            <th>Hair Color</th>
-            <td>NAD</td>
-            </tr>
-            <tr>
-            <th>Hair Density</th>
-            <td>NAD</td>
-            <th>Hair Texture</th>
-            <td>NAD</td>
-            </tr>
-            <tr>
-            <th>Alopecia</th>
-            <td>NAD</td>
-            <th>Chest</th>
-            <td>NAD</td>
-            </tr>
-            <tr>
-            <th>Abdomen</th>
-            <td>NAD</td>
-            <th>Extremity</th>
-            <td>feet_NAD</td>
-            </tr>
-            </tbody>
-            </table>
-        </div>
-        </div>
-        </Col>
-    </Row>
-    </div>
-
-    
     </div>
   );
 }
