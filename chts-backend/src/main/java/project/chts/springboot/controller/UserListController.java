@@ -20,9 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import project.chts.springboot.model.UserList;
 import project.chts.springboot.exception.UserNotFoundException;
-import project.chts.springboot.model.UserList;
 import project.chts.springboot.repository.UserListRepository;
-import project.chts.springboot.service.UserService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -57,7 +55,7 @@ public class UserListController {
 			return ResponseEntity.ok(userlist);
 		}
 		
-		// update child rest api
+		// update UserList rest api
 		
 		@PutMapping("/userlist/{id}")
 		public ResponseEntity<UserList> updateUserList(@PathVariable Integer id, @RequestBody UserList userlistDetails){

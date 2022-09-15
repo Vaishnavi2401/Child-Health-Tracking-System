@@ -2,11 +2,15 @@ package project.chts.springboot.model;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -16,6 +20,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name = "child")
 public class Child {
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	//@JoinColumn(name = "child_id")
+	private UserList userlist;
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
