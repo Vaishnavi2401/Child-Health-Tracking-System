@@ -14,8 +14,6 @@ import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 
 
-//import bootstrap from 'bootstrap';
-
 export default function AddNewChild(){
 
   const [DOB, setDOB] = React.useState(null);
@@ -48,7 +46,7 @@ export default function AddNewChild(){
            noValidate
           autoComplete="off"
           >
-        <FormControl fullWidth>
+        {/* <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Type of Category</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -61,7 +59,7 @@ export default function AddNewChild(){
           <MenuItem value={20}>Out of Anganwadi</MenuItem>
           <MenuItem value={30}>Summer Camp</MenuItem>
         </Select>
-        </FormControl>
+        </FormControl> */}
 
         <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Block</InputLabel>
@@ -78,7 +76,7 @@ export default function AddNewChild(){
         </Select>
         </FormControl>
 
-        <FormControl fullWidth>
+        {/* <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Project Name</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -91,7 +89,7 @@ export default function AddNewChild(){
           <MenuItem value={20}>Bhor</MenuItem>
           <MenuItem value={30}>Daund</MenuItem>
         </Select>
-        </FormControl>
+        </FormControl> */}
 
         <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">School Name</InputLabel>
@@ -106,29 +104,16 @@ export default function AddNewChild(){
           <MenuItem value={20}>2</MenuItem>
           <MenuItem value={30}>3</MenuItem>
         </Select>
+        
         </FormControl>
+        {/* <TextField id="outlined-basic" label="Child ID" variant="outlined" /> */}
+        {/* <TextField id="outlined-basic" label="Child School" variant="outlined" /> */}
 
         </Box>
         </Paper>
 
-        <Paper className="form-add">
-        <Box component="form"
-         sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-         }}
-           noValidate
-          autoComplete="off">
-        <h5 className='page-subhead'>Child Family Details</h5>
-         <TextField id="outlined-basic" label="Father's Name" variant="outlined" />
-         <TextField id="outlined-basic" label="Mother's Name" variant="outlined" />
-         <TextField id="outlined-basic" label="Parents Mobile Number" variant="outlined" />
-         <TextField className="address" id="outlined-basic" label="Address" variant="outlined" />
-         <TextField id="outlined-basic" label="Pincode" variant="outlined" />
-         <TextField id="outlined-basic" label="Email ID" variant="outlined" />
-         </Box>
-        </Paper>
-
-        <Paper className="form-add">
+        
+        {/* <Paper className="form-add">
         <Box component="form"
          sx={{
         '& > :not(style)': { m: 1, width: '25ch' },
@@ -140,7 +125,7 @@ export default function AddNewChild(){
          <TextField id="outlined-basic" label="Child School" variant="outlined" />
          </Box>
         </Paper>
-        
+         */}
         <Paper className="form-add">
         <Box component="form"
          sx={{
@@ -151,6 +136,7 @@ export default function AddNewChild(){
          <h5 className='page-subhead'>Child Information</h5>
          <TextField id="outlined-basic" label="Child Name" variant="outlined" />
          <TextField id="outlined-basic" label="Age" variant="outlined" />
+         <TextField id="outlined-basic" label="Child ID" variant="outlined" />
          <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Gender</InputLabel>
         <Select
@@ -183,7 +169,7 @@ export default function AddNewChild(){
           
           
       <TextField id="outlined-basic" label="User ID" variant="outlined" />
-      <FormControl fullWidth>
+      {/* <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Gender</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -196,9 +182,27 @@ export default function AddNewChild(){
           <MenuItem value={20}>Female</MenuItem>
           <MenuItem value={30}>Other</MenuItem>
         </Select>
-      </FormControl>
+      </FormControl> */}
       </Box>
          </Paper>
+
+         <Paper className="form-add">
+        <Box component="form"
+         sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+         }}
+           noValidate
+          autoComplete="off">
+        <h5 className='page-subhead'>Child Family Details</h5>
+         <TextField id="outlined-basic" label="Father's Name" variant="outlined" />
+         <TextField id="outlined-basic" label="Mother's Name" variant="outlined" />
+         <TextField id="outlined-basic" label="Parents Mobile Number" variant="outlined" />
+         <TextField className="address" id="outlined-basic" label="Address" variant="outlined" />
+         <TextField id="outlined-basic" label="Pincode" variant="outlined" />
+         <TextField id="outlined-basic" label="Email ID" variant="outlined" />
+         </Box>
+        </Paper>
+
   
             <button type="submit" className="btn btn-primary save-button">Save Details</button>
           

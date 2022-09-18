@@ -7,8 +7,12 @@ import Paper from '@mui/material/Paper';
 import {Container, Row, Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ScreeningNav from './ScreeningNav';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 const BasicInformation = () => {
+  const [DOB, setDOB] = React.useState(null);
   return (
     <div>
     <TemporaryDrawer/>
@@ -50,7 +54,18 @@ const BasicInformation = () => {
             
          <TextField id="outlined-basic" label="Child Name" variant="outlined" />
          <TextField id="outlined-basic" label="Age" variant="outlined" />
-         <TextField id="outlined-basic" label="DOB" variant="outlined" />
+         {/* <TextField id="outlined-basic" label="DOB" variant="outlined" /> */}
+         <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DatePicker
+            label="Date of Birth"
+            id=""
+            value={DOB}
+            onChange={(newValue) => {
+             setDOB(newValue);
+             }}
+             renderInput={(params) => <TextField {...params} />}
+            />
+          </LocalizationProvider>
          <TextField id="outlined-basic" label="Gender" variant="outlined" />
          <TextField id="outlined-basic" label="Aadhar Number" variant="outlined" />
          <TextField id="outlined-basic" label="Insurance Number" variant="outlined" />
