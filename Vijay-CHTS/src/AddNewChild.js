@@ -197,6 +197,8 @@ export default function AddNewChild(){
          <TextField id="outlined-basic" label="Father's Name" variant="outlined" />
          <TextField id="outlined-basic" label="Mother's Name" variant="outlined" />
          <TextField id="outlined-basic" label="Parents Mobile Number" variant="outlined" />
+         <TextField id="outlined-basic" label="Father Occupation" variant="outlined" />
+         <TextField id="outlined-basic" label="Mother Occupation" variant="outlined" />
          <TextField className="address" id="outlined-basic" label="Address" variant="outlined" />
          <TextField id="outlined-basic" label="Pincode" variant="outlined" />
          <TextField id="outlined-basic" label="Email ID" variant="outlined" />
