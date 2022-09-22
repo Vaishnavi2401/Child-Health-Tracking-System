@@ -1,6 +1,6 @@
 import './App.css';
 import './table.css';
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import Header from './Header';
 import TemporaryDrawer from './navbar';
@@ -14,36 +14,42 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import {TableBody, IconButton, InputBase, TextField, MenuItem, FormControl,
         TableCell, TableContainer, TableHead, Box, InputLabel, Select, Divider,
         TableRow, Paper, Table, TablePagination, tableCellClasses} from '@mui/material';
-import ChildService from '../Services/ChildService';
 //import bootstrap from 'bootstrap';
 
+const data = [
+{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+{ SrNo: 1, ChildName: "ABC", ChildAge: 13, Block: "Pune", SchoolName: "K.V. NDA Pune", AddedBy: "UG-Admin", AddedDate: "12-03-2022", Actions: 1 },
+]
 
 export default function ChildList() {
 
-  const [Child, setChild] = useState([]);
-  const [Block, setBlock] = useState('');
-
-  useEffect(() => {
-    ChildService.getChild().then((response) => {
-      setChild(response.data)
-      console.log(response.data);
-    }).catch(error =>{
-      console.log(error);
-    })
-  },[])
+  const [Block, setBlock] = React.useState('');
 
   const handleBlock = (event) => {
     setBlock(event.target.value);
   };
 
-  const [School, setSchool] = useState('');
+  const [School, setSchool] = React.useState('');
 
   const handleSchool = (event) => {
     setSchool(event.target.value);
   };
 
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -159,10 +165,9 @@ export default function ChildList() {
         </div>
         <Paper className="Table-Paper">
         <Table stickyHeader aria-label="user list table" className="Table">
-        <TableHead className='head-table'>
+          <TableHead className='head-table'>
             <TableRow>
               <TableCell >Sr. No</TableCell>
-              <TableCell >Child ID</TableCell>
               <TableCell >Child Name</TableCell>
               <TableCell>Child Age</TableCell>
               <TableCell>Block</TableCell>
@@ -173,15 +178,14 @@ export default function ChildList() {
             </TableRow>
           </TableHead>
           <TableBody>
-          {Child.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((Child) => (<TableRow key={Child.ChildID}>
-            <TableCell className='col-table'>{Child.SrNo}</TableCell>
-            <TableCell className='col-table'>{Child.child_id}</TableCell>
-            <TableCell className='col-table'>{Child.firstName}</TableCell>
-            <TableCell className='col-table'>{Child.age}</TableCell>
-            <TableCell className='col-table'>{Child.school.block}</TableCell>
-            <TableCell className='col-table'>{Child.school.schoolName}</TableCell>
-            <TableCell className='col-table'>{Child.AddedBy}</TableCell>
-            <TableCell className='col-table'>{Child.AddedDate}</TableCell>
+          {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (<TableRow key={row.UserID}>
+            <TableCell className='col-table'>{row.SrNo}</TableCell>
+            <TableCell className='col-table'>{row.ChildName}</TableCell>
+            <TableCell className='col-table'>{row.ChildAge}</TableCell>
+            <TableCell className='col-table'>{row.Block}</TableCell>
+            <TableCell className='col-table'>{row.SchoolName}</TableCell>
+            <TableCell className='col-table'>{row.AddedBy}</TableCell>
+            <TableCell className='col-table'>{row.AddedDate}</TableCell>
             <TableCell className='col-table'>
             <EditIcon className="icon-edit"/>
             <VisibilityIcon className="icon-view"/>
@@ -194,7 +198,7 @@ export default function ChildList() {
       <TablePagination
         rowsPerPageOptions={[5, 10, 25, 100, 500]}
         component="div"
-        count={Child.length}
+        count={data.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
