@@ -1,5 +1,6 @@
 import './App.css';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 //import Header from './Header';
 import TemporaryDrawer from './navbar';
 import Box from '@mui/material/Box';
@@ -12,32 +13,70 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
-
-
+import moment from 'moment';
+import UserService from '../Services/UserService';
 //import bootstrap from 'bootstrap';
+
+
 
 export default function RegisterUser(){
 
-  const [DOB, setDOB] = React.useState(null);
+  const [first_Name, setFirst_Name] = useState('');
+  const [middle_Name, setMiddle_Name] = useState('');
+  const [last_Name, setLast_Name] = useState('');
+  const [mobile_No, setMobile_No] = useState('');
+  const [email_Id, setEmail_Id] = useState('');
+  const [d_o_b, setD_o_b] = useState(null);
+  const [joining_Date, setJoining_Date] = useState(null);
+  const [group_Name, setGroup_Name] = useState('');
+  const [password, setPassword] = useState('');
+  const [gender, setGender] = useState('');
+  const [marital_Status, setMarital_Status] = useState('');
+  const [status, setStatus] = useState('');
+  const [user_Id, setUser_Id] = useState('');
+  const navigate = useNavigate();
 
-  const [JDate, setJDate] = React.useState(null);
-
-  const [Group, setGroup] = React.useState('');
-
-  const handleGroup = (event) => {
-    setGroup(event.target.value);
+  const handleGroup_Name = (event) => {
+    setGroup_Name(event.target.value);
   };
-  const [Gender, setGender] = React.useState('');
-
+  
   const handleGender = (event) => {
     setGender(event.target.value);
   };
 
-  const [Marital, setMarital] = React.useState('');
-
-  const handleMarital = (event) => {
-    setMarital(event.target.value);
+  const handleMarital_Status = (event) => {
+    setMarital_Status(event.target.value);
   };
+
+  const handleStatus = (event) => {
+    setStatus(event.target.value);
+  };
+
+  const handleDOB = (event) => {
+   // let myDate = moment(event).format('L');
+   let myDate = moment(event).format('YYYY-MM-DD');
+    setD_o_b(myDate);
+  };
+
+  const handleJoining_Date = (event) => {
+    // let myDate = moment(event).format('L');
+    let myDate = moment(event).format('YYYY-MM-DD');
+     setJoining_Date(myDate);
+   };
+
+  const saveUser = (e) => {
+    e.preventDefault();
+
+    const User = {user_Id, first_Name, middle_Name, last_Name, mobile_No, email_Id, d_o_b, joining_Date, group_Name, password, gender, marital_Status, status};
+  
+    console.log(User);
+    UserService.postUser(User).then((response) => {
+      console.log(response.data);
+      navigate('/UserList');
+   }).catch(error => {
+      console.log(error);
+    })
+  }
 
   return (
     <div>
@@ -54,80 +93,70 @@ export default function RegisterUser(){
            noValidate
           autoComplete="off"
           >
-         <TextField id="outlined-basic" label="First Name" variant="outlined" />
-         <TextField id="outlined-basic" label="Middle Name" variant="outlined" />
-         <TextField id="outlined-basic" label="Last Name" variant="outlined" />
-         <TextField id="outlined-basic" label="Mobile Number" variant="outlined" />
-         <TextField id="outlined-basic" label="Email ID" variant="outlined" />
+         <TextField label="User ID" value ={user_Id} name = "user_Id" onChange={(e) => setUser_Id(e.target.value)} variant="outlined" />
+         <TextField label="First Name" value ={first_Name} name = "first_Name" onChange={(e) => setFirst_Name(e.target.value)} variant="outlined" />
+         <TextField label="Middle Name" value ={middle_Name} name = "middle_Name" onChange={(e) => setMiddle_Name(e.target.value)} variant="outlined" />
+         <TextField label="Last Name" value ={last_Name} name = "last_Name" onChange={(e) => setLast_Name(e.target.value)} variant="outlined" />
+         <TextField label="Mobile Number" value ={mobile_No} name = "mobile_No" onChange={(e) => setMobile_No(e.target.value)} variant="outlined" />
+         <TextField label="Email ID" value ={email_Id} name = "email_Id" onChange={(e) => setEmail_Id(e.target.value)} variant="outlined" />
          <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker
-            label="Date of Birth"
-            id=""
-            value={DOB}
-            onChange={(newValue) => {
-             setDOB(newValue);
-             }}
-             renderInput={(params) => <TextField {...params} />}
+            label="Date of Birth" value={d_o_b} name = "d_o_b" onChange={handleDOB}
+            maxDate={new Date()}
+            renderInput={(params) => <TextField {...params} />}
             />
           </LocalizationProvider>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker
-            label="Joining Date"
-            id=""
-            value={JDate}
-            onChange={(newValue) => {
-             setJDate(newValue);
-             }}
-             renderInput={(params) => <TextField {...params} />}
+            label="Joining Date" selected={joining_Date} value={joining_Date} name = "joining_Date" onChange={handleJoining_Date}
+            dateFormat = 'yyyy-MM-dd' 
+            maxDate={new Date()}
+            renderInput={(params) => <TextField {...params} />}
             />
           </LocalizationProvider>
           <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Group</InputLabel>
         <Select
           labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={Group}
-          label="Group"
-          onChange={handleGroup}
-        >
-          <MenuItem value={10}>Admin</MenuItem>
-          <MenuItem value={20}>CHO</MenuItem>
-          <MenuItem value={30}>Expert</MenuItem>
+          value={group_Name} name = "group_Name" label="Group" onChange={handleGroup_Name} >
+          <MenuItem value={'Admin'}>Admin</MenuItem>
+          <MenuItem value={'CHO'}>CHO</MenuItem>
+          <MenuItem value={'Expert'}>Expert</MenuItem>
         </Select>
       </FormControl>
-      <TextField id="outlined-basic" label="User ID" variant="outlined" />
-      <TextField id="outlined-basic" label="Password" variant="outlined" />
+      <TextField label="Password" value ={password} name = "password" onChange={(e) => setPassword(e.target.value)} variant="outlined" />
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Gender</InputLabel>
         <Select
           labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={Gender}
-          label="Gender"
-          onChange={handleGender}
-        >
-          <MenuItem value={10}>Male</MenuItem>
-          <MenuItem value={20}>Female</MenuItem>
-          <MenuItem value={30}>Other</MenuItem>
+          value={gender} name = "gender" label="Gender" onChange={handleGender}>
+          <MenuItem value={'Male'}>Male</MenuItem>
+          <MenuItem value={'Female'}>Female</MenuItem>
+          <MenuItem value={'Other'}>Other</MenuItem>
         </Select>
       </FormControl>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Marital Status</InputLabel>
         <Select
           labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={Marital}
-          label="Marital Status"
-          onChange={handleMarital}
-        >
-          <MenuItem value={10}>Married</MenuItem>
-          <MenuItem value={20}>Unmarried</MenuItem>
+          value={marital_Status} name = "marital_Status" label="Marital Status" onChange={handleMarital_Status}>
+          <MenuItem value={'Married'}>Married</MenuItem>
+          <MenuItem value={'Unmarried'}>Unmarried</MenuItem>
+        </Select>
+        </FormControl>
+        <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Status</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          value={status} name = "status" label="Status" onChange={handleStatus}>
+          <MenuItem value={'Active'}>Active</MenuItem>
+          <MenuItem value={'Inactive'}>Inactive</MenuItem>
         
         </Select>
       </FormControl>
          </Box>
          </Paper>
-         <button type="submit" onClick ={() => {}} className="btn btn-primary save-btn">
+         <button type="submit" onClick ={(e) => saveUser(e)} className="btn btn-primary save-btn">
                 Submit
           </button>
         </div>

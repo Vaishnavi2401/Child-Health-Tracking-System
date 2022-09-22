@@ -226,7 +226,7 @@ export default function TemporaryDrawer() {
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-          <ListItemButton component="a" href="#simple-list">
+          <ListItemButton component="a" href="/Report">
               <ListItemIcon>
                 <AssessmentIcon />
               </ListItemIcon>

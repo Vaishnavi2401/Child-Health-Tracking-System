@@ -67,7 +67,7 @@ export default function HealthcardList() {
 	return (
         <div>
         <TemporaryDrawer/>
-        <h4 className='page-head'>Healthcard information List</h4>
+        <h4 className='page-head'>Healthcard Information List</h4>
         <div>
         <Row>
         <Col sm={7}>
