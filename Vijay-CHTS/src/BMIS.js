@@ -1,4 +1,6 @@
 import './App.css';
+import './table.css';
+import './New.css';
 import React from 'react';
 import TemporaryDrawer from './navbar';
 import Box from '@mui/material/Box';
@@ -24,7 +26,7 @@ const BMIS = () => {
     <TemporaryDrawer/>
     <ScreeningNav/>
     <div>
-        <h4 className='page-head'>Growth Monitoring</h4>
+        <h4 className='page-screeninghead'>Growth Monitoring</h4>
         <div>
           <Row>
           <Col sm={6}>
