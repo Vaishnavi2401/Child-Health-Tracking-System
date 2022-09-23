@@ -1,4 +1,6 @@
 import './App.css';
+import './table.css';
+import './New.css';
 import React from 'react';
 import TemporaryDrawer from './navbar';
 import Box from '@mui/material/Box';
@@ -8,19 +10,23 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import {Container, Row, Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 
 
 import ScreeningNav from './ScreeningNav';
 
 const BMIS = () => {
+  const [DOB, setDOB] = React.useState(null);
   return (
     <div>
     
     <TemporaryDrawer/>
     <ScreeningNav/>
     <div>
-        <h4 className='page-head'>Growth Monitoring</h4>
+        <h4 className='page-screeninghead'>Growth Monitoring</h4>
         <div>
           <Row>
           <Col sm={6}>
@@ -34,7 +40,18 @@ const BMIS = () => {
            noValidate
           autoComplete="off">
             
-            <TextField id="outlined-basic" label="DOB" variant="outlined" />
+            {/* <TextField id="outlined-basic" label="DOB" variant="outlined" /> */}
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DatePicker
+            label="Date of Birth"
+            id=""
+            value={DOB}
+            onChange={(newValue) => {
+             setDOB(newValue);
+             }}
+             renderInput={(params) => <TextField {...params} />}
+            />
+          </LocalizationProvider>
             <TextField id="outlined-basic" label="Age in Years" variant="outlined" />
             <TextField id="outlined-basic" label="Months" variant="outlined" />
             <TextField id="outlined-basic" label="Days" variant="outlined" />
