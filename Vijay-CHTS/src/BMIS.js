@@ -28,8 +28,6 @@ const BMIS = () => {
     <div>
         <h4 className='page-screeninghead'>Growth Monitoring</h4>
         <div>
-          <Row>
-          <Col sm={6}>
 
           <Paper className="form-add">
         <Box
@@ -40,7 +38,7 @@ const BMIS = () => {
            noValidate
           autoComplete="off">
             
-            {/* <TextField id="outlined-basic" label="DOB" variant="outlined" /> */}
+
             <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker
             label="Date of Birth"
@@ -52,15 +50,17 @@ const BMIS = () => {
              renderInput={(params) => <TextField {...params} />}
             />
           </LocalizationProvider>
-            <TextField id="outlined-basic" label="Age in Years" variant="outlined" />
-            <TextField id="outlined-basic" label="Months" variant="outlined" />
-            <TextField id="outlined-basic" label="Days" variant="outlined" />
-            <TextField id="outlined-basic" label="Gender" variant="outlined" />
+            
             <TextField id="outlined-basic" label="BMI" variant="outlined" />
+            <TextField id="outlined-basic" label="Gender" variant="outlined" />
             <TextField id="outlined-basic" label="Weight-kgs" variant="outlined" />
             <TextField id="outlined-basic" label="Height-cms" variant="outlined" />
-            <TextField id="outlined-basic" label="BMI" variant="outlined" />
-           
+            <TextField id="outlined-basic" label="Arm Size *" variant="outlined" />
+            <h5>Age in Years</h5>
+            <TextField id="outlined-basic" label="Years" variant="outlined" />
+            <TextField id="outlined-basic" label="Months" variant="outlined" />
+            <TextField id="outlined-basic" label="Days" variant="outlined" />
+
           </Box>
           </Paper>
 
@@ -74,32 +74,15 @@ const BMIS = () => {
           autoComplete="off"
           >
           <h4 className='page-subhead'>Medical Event</h4>
-          </Box>
-          </Paper>
-          
-          </Col>
 
-          <Col sm={6}>
-         <Paper className="form-add">
-        <Box
-       component="form"
-         sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-         }}
-           noValidate
-          autoComplete="off"
-          >
-          <h4>Something to Display here</h4>
-          {/* <TextField id="outlined-basic" label="Past Medical History" variant="outlined" />
-          <TextField id="outlined-basic" label="Previous Hospitalization" variant="outlined" /> */}
+          <TextField id="outlined-basic" label="Symptoms" variant="outlined" />
+          <TextField id="outlined-basic" label="Remark" variant="outlined" />
+          <TextField id="outlined-basic" label="Note" variant="outlined" />
+
           </Box>
           </Paper>
 
-         </Col>
-            </Row>
-
-            <button type="submit" className="btn btn-primary save-button">Accept</button>
-            <button type="submit" className="btn btn-primary back-button">Back</button>
+            <button type="submit" className="btn btn-primary save-button">Save</button>
           </div>
           </div>
     

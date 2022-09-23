@@ -19,7 +19,7 @@ const FamilyInfo = () => {
     <ScreeningNav/>
 
     <div>
-        <h4 className='page-head'>Family Information</h4>
+        <h4 className='page-screeninghead'>Family Information</h4>
         <div>
           <Row>
           <Col sm={12}>
@@ -34,20 +34,19 @@ const FamilyInfo = () => {
           autoComplete="off"
           >
             
-            <TextField id="outlined-basic" label="No. of Family Members *" variant="outlined" />
             <TextField id="outlined-basic" label="Father's Name *" variant="outlined" />
             <TextField id="outlined-basic" label="Mother's Name *" variant="outlined" />
+            <TextField id="outlined-basic" label="Parent's Mobile Number *" variant="outlined" />
             <TextField id="outlined-basic" label="Occupation of Father *" variant="outlined" />
             <TextField id="outlined-basic" label="Occupation of Mother *" variant="outlined" />
-            <TextField id="outlined-basic" label="Remarks *" variant="outlined" />
+            <TextField id="outlined-basic" label="Siblings *" variant="outlined" />
            
           </Box>
           </Paper>
           </Col>
             </Row>
 
-            <button type="submit" className="btn btn-primary save-button">Accept</button>
-            <button type="submit" className="btn btn-primary back-button">Back</button>
+            <button type="submit" className="btn btn-primary save-button">Save</button>
           </div>
           </div>
     
