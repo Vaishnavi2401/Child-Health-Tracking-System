@@ -12,28 +12,35 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
+import SchoolService from '../Services/SchoolService';
+import { useNavigate } from 'react-router-dom';
 
 
 //import bootstrap from 'bootstrap';
 
 export default function AddSchool(){
 
-   const [registrationNo, setRegistrationNo] = useState('');
+   const [registrationNo, setRegistrationNo] = useState(''); 
    const [contactNo, setContactNo] = useState('');
-   const [schoolName, setSchoolName] = useState('');
+   const [schoolName, setSchoolName] = useState('');  
    const [schoolEmail, setSchoolEmail] = useState('');
-   const [block, setBlock] = useState('');
+   const [block, setBlock] = useState('');             
+     
+   const navigate = useNavigate();
 
-
-   const saveSchool = (e) => {   //saveSchool
+   const saveSchool = (e) => {   
         e.preventDefault();
-
         const School = {registrationNo, contactNo, schoolName, schoolEmail, block};
 
-        console.log(School);     //School
+        SchoolService.postSchool(School).then((response) => {
+          console.log(response.data);
+          navigate('/SchoolList');
+       }).catch(error => {
+          console.log(error);
+        })     
   }                   
 
-  return (                  //same
+  return (                  
     <div>
     <TemporaryDrawer/>
       <div>
