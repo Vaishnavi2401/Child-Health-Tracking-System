@@ -46,21 +46,6 @@ export default function AddNewChild(){
            noValidate
           autoComplete="off"
           >
-        {/* <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Type of Category</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={Group}
-          label="Type of Category"
-          onChange={handleGroup}
-        >
-          <MenuItem value={10}>Within Anganwadi</MenuItem>
-          <MenuItem value={20}>Out of Anganwadi</MenuItem>
-          <MenuItem value={30}>Summer Camp</MenuItem>
-        </Select>
-        </FormControl> */}
-
         <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Block</InputLabel>
         <Select
@@ -76,28 +61,13 @@ export default function AddNewChild(){
         </Select>
         </FormControl>
 
-        {/* <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Project Name</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={Group}
-          label="Project Name"
-          onChange={handleGroup}
-        >
-          <MenuItem value={10}>Baramati 1</MenuItem>
-          <MenuItem value={20}>Bhor</MenuItem>
-          <MenuItem value={30}>Daund</MenuItem>
-        </Select>
-        </FormControl> */}
-
         <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">School Name</InputLabel>
+        <InputLabel id="demo-simple-select-label">School Registration Number</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={Group}
-          label="School Name"
+          label="School Registration Number"
           onChange={handleGroup}
         >
           <MenuItem value={10}>1</MenuItem>
@@ -106,26 +76,10 @@ export default function AddNewChild(){
         </Select>
         
         </FormControl>
-        {/* <TextField id="outlined-basic" label="Child ID" variant="outlined" /> */}
-        {/* <TextField id="outlined-basic" label="Child School" variant="outlined" /> */}
 
         </Box>
         </Paper>
 
-        
-        {/* <Paper className="form-add">
-        <Box component="form"
-         sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-         }}
-           noValidate
-          autoComplete="off">
-         <h5 className='page-subhead'>School Information</h5>
-         <TextField id="outlined-basic" label="Child ID" variant="outlined" />
-         <TextField id="outlined-basic" label="Child School" variant="outlined" />
-         </Box>
-        </Paper>
-         */}
         <Paper className="form-add">
         <Box component="form"
          sx={{
@@ -169,20 +123,6 @@ export default function AddNewChild(){
           
           
       <TextField id="outlined-basic" label="User ID" variant="outlined" />
-      {/* <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Gender</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={Gender}
-          label="Gender"
-          onChange={handleGender}
-        >
-          <MenuItem value={10}>Male</MenuItem>
-          <MenuItem value={20}>Female</MenuItem>
-          <MenuItem value={30}>Other</MenuItem>
-        </Select>
-      </FormControl> */}
       </Box>
          </Paper>
 
@@ -199,9 +139,24 @@ export default function AddNewChild(){
          <TextField id="outlined-basic" label="Parents Mobile Number" variant="outlined" />
          <TextField id="outlined-basic" label="Father Occupation" variant="outlined" />
          <TextField id="outlined-basic" label="Mother Occupation" variant="outlined" />
-         <TextField className="address" id="outlined-basic" label="Address" variant="outlined" />
+         {/* <TextField className="address" id="outlined-basic" label="Address" variant="outlined" /> */}
          <TextField id="outlined-basic" label="Pincode" variant="outlined" />
          <TextField id="outlined-basic" label="Email ID" variant="outlined" />
+         </Box>
+        </Paper>
+
+        <Paper className="form-add">
+        <Box component="form"
+         sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+         }}
+           noValidate
+          autoComplete="off">
+        <h5 className='page-subhead'>Child Address Details</h5>
+         <TextField id="outlined-basic" label="House Number" variant="outlined" />
+         <TextField id="outlined-basic" label="Street" variant="outlined" />
+         <TextField id="outlined-basic" label="Area" variant="outlined" />
+         <TextField id="outlined-basic" label="Pincode" variant="outlined" />
          </Box>
         </Paper>
 
