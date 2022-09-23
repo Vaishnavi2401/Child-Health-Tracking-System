@@ -98,8 +98,7 @@ const BMIS = () => {
          </Col>
             </Row>
 
-            <button type="submit" className="btn btn-primary save-button">Accept</button>
-            <button type="submit" className="btn btn-primary back-button">Back</button>
+            <button type="submit" className="btn btn-primary save-button">Save</button>
           </div>
           </div>
     

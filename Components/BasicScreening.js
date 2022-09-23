@@ -22,7 +22,7 @@ const BasicScreening = () => {
     <ScreeningNav/>
 
     <div>
-        <h4 className='page-head'>Basic Screening </h4>
+        <h4 className='page-screeninghead'>Basic Screening </h4>
         <p></p>
         <div>
           
@@ -123,8 +123,7 @@ const BasicScreening = () => {
          </Col>
          </Row>
 
-         <button type="submit" className="btn btn-primary save-button">Accept</button>
-         <button type="submit" className="btn btn-primary back-button">Back</button>
+         <button type="submit" className="btn btn-primary save-button">Save</button>
          </div>
          </div>
     

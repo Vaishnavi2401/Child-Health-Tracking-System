@@ -21,7 +21,7 @@ const Dental = () => {
     <TemporaryDrawer/>
     <ScreeningNav/>
     <div>
-    <h4 className='page-head'>Dental Checkup</h4>
+    <h4 className='page-screeninghead'>Dental Checkup</h4>
         <div>
           <Row>
           <Col sm={15}>
@@ -496,8 +496,7 @@ const Dental = () => {
    
          </Col>
          </Row>
-         <button type="submit" className="btn btn-primary save-button">Accept</button>
-         <button type="submit" className="btn btn-primary back-button">Back</button>
+         <button type="submit" className="btn btn-primary save-button">Save</button>
         </div>
         </div>
     </div>

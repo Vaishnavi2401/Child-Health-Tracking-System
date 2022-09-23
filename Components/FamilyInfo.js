@@ -19,7 +19,7 @@ const FamilyInfo = () => {
     <ScreeningNav/>
 
     <div>
-        <h4 className='page-head'>Family Information</h4>
+        <h4 className='page-screeninghead'>Family Information</h4>
         <div>
           <Row>
           <Col sm={12}>
@@ -46,8 +46,7 @@ const FamilyInfo = () => {
           </Col>
             </Row>
 
-            <button type="submit" className="btn btn-primary save-button">Accept</button>
-            <button type="submit" className="btn btn-primary back-button">Back</button>
+            <button type="submit" className="btn btn-primary save-button">Save</button>
           </div>
           </div>
     

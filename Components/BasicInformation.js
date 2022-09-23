@@ -14,7 +14,7 @@ const BasicInformation = () => {
     <TemporaryDrawer/>
     <ScreeningNav/>
     <div>
-        <h4 className='page-head'>Child Basic Information</h4>
+        <h4 className='page-screeninghead'>Child Basic Information</h4>
         <div>
           <Row>
           <Col sm={6}>
@@ -62,7 +62,7 @@ const BasicInformation = () => {
          </Col>
          
          <Col sm={6}>
-         <Paper className="form-add">
+         <Paper>
         <Box
        component="form"
          sx={{
@@ -79,7 +79,7 @@ const BasicInformation = () => {
 
          </Col>
          </Row>
-         <button type="submit" className="btn btn-primary save-button">Accept</button>
+         <button type="submit" className="btn btn-primary save-button">Save</button>
         </div>
         </div>
     </div>
