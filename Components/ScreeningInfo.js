@@ -36,7 +36,7 @@ export default function ScreeningInfo(){
     <div>
     <TemporaryDrawer/>
       <div>
-        <h3 className='page-head'>Screening Information</h3>
+        <h3 className='page-screeninghead'>Screening Information</h3>
 
         <Paper className="form-add">
           <h5 className='page-subhead'></h5>
@@ -152,6 +152,7 @@ export default function ScreeningInfo(){
       </Box>
          </Paper>
 
+         <button type="submit" className="btn btn-primary save-button">Save</button>
 
       {/* <button className="btn btn-primary save-button">Save Details</button> */}
 

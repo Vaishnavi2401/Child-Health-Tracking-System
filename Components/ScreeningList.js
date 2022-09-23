@@ -184,7 +184,7 @@ export default function ScreeningList() {
             <TableCell className='col-table'>{row.Block}</TableCell>
             <TableCell className='col-table'>{row.SchoolName}</TableCell>
             <TableCell className='col-table'>
-            <EditIcon className="icon-edit"  onClick ={() => {navLog("/BasicScreening");}}/>
+            <EditIcon className="icon-edit"  onClick ={() => {navLog("/BasicInformation");}}/>
             </TableCell>
             <TableCell className='col-table'>
                 <button type="submit"  className="btn btn-primary Prescription-btn" 

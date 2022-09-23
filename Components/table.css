@@ -214,3 +214,12 @@
     background-color: #1976d2;
     color: white;
 }
+.page-screeninghead{
+    position: relative;
+    left:90px;
+    top: 10px ;
+    font-weight: 600;
+    font-size: 25px ;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
