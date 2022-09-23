@@ -29,8 +29,10 @@ const Vitals = () => {
           autoComplete="off">
             
             <TextField id="outlined-basic" label="Pulse-Beat/min *" variant="outlined" />
-            <TextField id="outlined-basic" label="BP-mm-Hg *" variant="outlined" />
+            <TextField id="outlined-basic" label="BP-mm-Hg(sys) *" variant="outlined" />
+            <TextField id="outlined-basic" label="BP-mm-Hg(dys) *" variant="outlined" />
             <TextField id="outlined-basic" label="RR-per min *" variant="outlined" />
+            <TextField id="outlined-basic" label="O2 Sats- % *" variant="outlined" />
             <TextField id="outlined-basic" label="HB *" variant="outlined" />
             <TextField id="outlined-basic" label="Temperature *" variant="outlined" />
 
