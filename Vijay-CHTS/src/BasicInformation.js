@@ -54,8 +54,6 @@ const BasicInformation = () => {
             
          <TextField id="outlined-basic" label="First Name" variant="outlined" />
          <TextField id="outlined-basic" label="Last Name" variant="outlined" />
-         <TextField id="outlined-basic" label="Age" variant="outlined" />
-         {/* <TextField id="outlined-basic" label="DOB" variant="outlined" /> */}
          <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker
             label="Date of Birth"
@@ -67,6 +65,7 @@ const BasicInformation = () => {
              renderInput={(params) => <TextField {...params} />}
             />
           </LocalizationProvider>
+          <TextField id="outlined-basic" label="Age" variant="outlined" />
          <TextField id="outlined-basic" label="Gender" variant="outlined" />
          <TextField id="outlined-basic" label="Aadhar Number" variant="outlined" />
          <TextField id="outlined-basic" label="Insurance Number" variant="outlined" />
