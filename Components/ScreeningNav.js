@@ -4,6 +4,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { useNavigate } from "react-router-dom";
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 
 
@@ -13,6 +14,12 @@ const ScreeningNav = () => {
 
   return (
     <div>
+      <div className='hlt-head'>
+      <button type="submit" onClick ={() => {navLog("/ScreeningList");}} className="btn btn-primary back-button">
+            <ArrowBackIosNewIcon/>
+      </button>
+      <h3 className='healthcard-head'>Child Screening</h3>
+      </div>
         <div>
         <Paper className="form-add">
         <Box
