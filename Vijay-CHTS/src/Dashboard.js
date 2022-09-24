@@ -1,26 +1,3 @@
-// import './App.css';
-// import React from 'react';
-// //import Header from './Header';
-// import TemporaryDrawer from './navbar';
-
-
-// //import bootstrap from 'bootstrap';
-
-
-// const Dashboard = () => {
-//   return (
-//     <div>
-    
-//     <TemporaryDrawer/>
-    
-
-    
-//     </div>
-//   );
-// }
-
-// export default Dashboard;
-
 import './App.css';
 import React from 'react';
 import TemporaryDrawer from './navbar';
@@ -31,47 +8,55 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 class Dashboard extends Component {
 	render() {
-    
-    // <Paper className="form-add">
-    //     <Box
-    //    component="form"
-    //      sx={{
-    //     '& > :not(style)': { m: 1, width: '25ch' },
-    //      }}
-    //        noValidate
-    //       autoComplete="off">
 
-      const option1 = {
+    const option1 = {
 			animationEnabled: true,
-			theme: "light2",
-			title:{
-				text: "Children Records Added"
+			colorSet: "colorSet2",
+			title: {
+				text: "Children Records"
 			},
 			axisX: {
-				title: "Social Network",
-				reversed: true,
+				valueFormatString: "MMMM"
 			},
 			axisY: {
-				title: "Monthly Active Users",
-				includeZero: true,
+				prefix: "$",
 				labelFormatter: this.addSymbols
 			},
+			toolTip: {
+				shared: true
+			},
+			legend: {
+				cursor: "pointer",
+				itemclick: this.toggleDataSeries,
+				verticalAlign: "top"
+			},
 			data: [{
-				type: "bar",
+				type: "column",
+				name: "Screening Done",
+				showInLegend: true,
+				xValueFormatString: "MMMM YYYY",
+				yValueFormatString: "$#,##0",
 				dataPoints: [
-					{ y:  2200000000, label: "Ambegaon" },
-					{ y:  1800000000, label: "Baramadi" },
-					{ y:  800000000, label: "Bhor" },
-					{ y:  563000000, label: "Haveli" },
-					{ y:  376000000, label: "Junnar" },
-					{ y:  336000000, label: "Maval" },
-					{ y:  330000000, label: "Pune" }
-				]
-			}]
-		}
-    // </Box>
-    // </Paper>
+          { label: "Ambegaon", y:  2200000000  },
+					{label: "Baramadi", y:  1800000000  },
+					{ label: "Bhor", y:  800000000 },
+					{label: "Haveli", y:  563000000,  },
+					{ label: "Junnar", y:  376000000  },
+					{ label: "Maval", y:  336000000  },
+					{ label: "Pune", y:  330000000  },
+          { label: "Ambegaon", y:  2200000000  },
+					{label: "Baramadi", y:  1800000000  },
+					{ label: "Bhor", y:  800000000 },
+					{label: "Haveli", y:  563000000,  },
+					{ label: "Junnar", y:  376000000  },
+					{ label: "Maval", y:  336000000  },
+					{ label: "Pune", y:  330000000  }
 
+				]
+			}
+    ]
+  }
+		
 		const option2 = {
 			exportEnabled: true,
 			animationEnabled: true,
@@ -99,28 +84,11 @@ class Dashboard extends Component {
 		<div>
       <div>
       <TemporaryDrawer/>
-      {/* <div>
-      <h1>Child Health Tracking System</h1>
-      </div> */}
-      {/* <div>
-      <Paper className="form-add">
-        <Box
-       component="form"
-         sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-         }}
-           noValidate
-          autoComplete="off"> */}
+
       <CanvasJSChart options = {option1}
-      // </Box>
-      // </Paper>
-      // </div>
-				/* onRef={ref => this.chart = ref} */
-			/>
-			<CanvasJSChart options = {option2}
-				/* onRef={ref => this.chart = ref} */
-			/>
-			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
+      />
+      <CanvasJSChart options = {option2}
+      />
 		</div>
     </div>
 		);
