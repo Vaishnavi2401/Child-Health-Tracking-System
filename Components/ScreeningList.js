@@ -1,6 +1,6 @@
 import './App.css';
 import './table.css';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import Header from './Header';
 import TemporaryDrawer from './navbar';
@@ -14,32 +14,30 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import {TableBody, IconButton, InputBase, TextField, MenuItem, FormControl,
         TableCell, TableContainer, TableHead, Box, InputLabel, Select, Divider,
         TableRow, Paper, Table, TablePagination, tableCellClasses} from '@mui/material';
+
+import ChildService from '../Services/ChildService';        
 //import bootstrap from 'bootstrap';
 
-const data = [
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-{ SrNo: 1, ChildID: "PUN1023" , ChildName: "ABC",  Block: "Pune", SchoolName: "K.V. NDA Pune" },
-]
 
 export default function ScreeningList() {
 
-  const [Block, setBlock] = React.useState('');
+  const navigate = useNavigate();
+
+  const [Child, setChild] = useState([]);
+  const [Block, setBlock] = useState('');
+
+  useEffect(() => {
+    getAllChild();
+  },[])
+
+  const getAllChild = ( ) =>{
+    ChildService.getChild().then((response) => {
+      setChild(response.data)
+      console.log(response.data);
+    }).catch(error =>{
+      console.log(error);
+    })
+  }
 
   const handleBlock = (event) => {
     setBlock(event.target.value);
@@ -167,7 +165,6 @@ export default function ScreeningList() {
         <Table stickyHeader aria-label="user list table" className="Table">
           <TableHead className='head-table'>
             <TableRow>
-              <TableCell >Sr. No</TableCell>
               <TableCell>Child ID</TableCell>
               <TableCell >Child Name</TableCell>
               <TableCell>Block Name</TableCell>
@@ -177,14 +174,13 @@ export default function ScreeningList() {
             </TableRow>
           </TableHead>
           <TableBody>
-          {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (<TableRow key={row.UserID}>
-            <TableCell className='col-table'>{row.SrNo}</TableCell>
-            <TableCell className='col-table'>{row.ChildID}</TableCell>
-            <TableCell className='col-table'>{row.ChildName}</TableCell>
-            <TableCell className='col-table'>{row.Block}</TableCell>
-            <TableCell className='col-table'>{row.SchoolName}</TableCell>
+          {Child.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((data) => (<TableRow key={data.child_id}>
+            <TableCell className='col-table'>{data.child_id}</TableCell>
+            <TableCell className='col-table'>{data.firstName} {data.lastName}</TableCell>
+            <TableCell className='col-table'>{data.school.block}</TableCell>
+            <TableCell className='col-table'>{data.school.schoolName}</TableCell>
             <TableCell className='col-table'>
-            <EditIcon className="icon-edit"  onClick ={() => {navLog("/BasicScreening");}}/>
+            <EditIcon className="icon-edit"  onClick ={() => {navLog(`/BasicInformation/${data.child_id}`);}}/>
             </TableCell>
             <TableCell className='col-table'>
                 <button type="submit"  className="btn btn-primary Prescription-btn" 
@@ -199,7 +195,7 @@ export default function ScreeningList() {
       <TablePagination
         rowsPerPageOptions={[5, 10, 25, 100, 500]}
         component="div"
-        count={data.length}
+        count={Child.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

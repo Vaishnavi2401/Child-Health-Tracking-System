@@ -26,13 +26,26 @@ export default function SchoolList() {
         const navLog = useNavigate();
       
         useEffect(() => {
-                  SchoolService.getSchool().then((response) => {
-                  setSchool(response.data)
-                   console.log(response.data);
-                  }).catch(error =>{
-                   console.log(error);
-                  })
+          getAllSchool();
          },[])
+
+         const getAllSchool = ( ) =>{
+          SchoolService.getSchool().then((response) => {
+            setSchool(response.data)
+            console.log(response.data);
+          }).catch(error =>{
+            console.log(error);
+          })
+        }
+      
+         const deleteSchool = (registrationNo) => {
+          console.log(registrationNo);
+          SchoolService.deleteSchoolByID(registrationNo).then((response) => {
+            getAllSchool();
+         }).catch(error => {
+           console.log(error);
+          })  
+     }
       
         const [page, setPage] = useState(0);
         const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -116,9 +129,8 @@ export default function SchoolList() {
             <TableCell className='col-table'>{data.contactNo}</TableCell>
             <TableCell className='col-table'>{data.block}</TableCell>
             <TableCell className='col-table'>
-            <EditIcon className="icon-edit"/>
-            <VisibilityIcon className="icon-view"/>
-            <DeleteIcon className="icon-delete"/>
+            <EditIcon className="icon-edit" onClick ={() => {navLog(`/AddSchool/${data.registrationNo}`);}}/>
+            <DeleteIcon className="icon-delete" onClick ={() => {deleteSchool(data.registrationNo)}}/>
             </TableCell>
           </TableRow>))
           :
@@ -128,9 +140,8 @@ export default function SchoolList() {
             <TableCell className='col-table'>{data.contactNo}</TableCell>
             <TableCell className='col-table'>{data.block}</TableCell>
             <TableCell className='col-table'>
-            <EditIcon className="icon-edit"/>
-            <VisibilityIcon className="icon-view"/>
-            <DeleteIcon className="icon-delete"/>
+            <EditIcon className="icon-edit" onClick ={() => {navLog(`/AddSchool/${data.registrationNo}`);}}/>
+            <DeleteIcon className="icon-delete" onClick ={() => {deleteSchool(data.registrationNo)}}/>
             </TableCell>
           </TableRow>)) 
         }
