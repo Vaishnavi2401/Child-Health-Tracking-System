@@ -35,22 +35,22 @@ class Dashboard extends Component {
 				name: "Screening Done",
 				showInLegend: true,
 				xValueFormatString: "MMMM YYYY",
-				yValueFormatString: "$#,##0",
+				yValueFormatString: "#,##0",
 				dataPoints: [
-          { label: "Ambegaon", y:  2200000000  },
-					{label: "Baramadi", y:  1800000000  },
-					{ label: "Bhor", y:  800000000 },
-					{label: "Haveli", y:  563000000,  },
-					{ label: "Junnar", y:  376000000  },
-					{ label: "Maval", y:  336000000  },
-					{ label: "Pune", y:  330000000  },
-          { label: "Ambegaon", y:  2200000000  },
-					{label: "Baramadi", y:  1800000000  },
-					{ label: "Bhor", y:  800000000 },
-					{label: "Haveli", y:  563000000,  },
-					{ label: "Junnar", y:  376000000  },
-					{ label: "Maval", y:  336000000  },
-					{ label: "Pune", y:  330000000  }
+          { label: "Ambegaon", y:  220000  },
+					{label: "Baramadi", y:  180000  },
+					{ label: "Bhor", y:  800000 },
+					{label: "Haveli", y:  563000,  },
+					{ label: "Junnar", y:  376000  },
+					{ label: "Maval", y:  336000  },
+					{ label: "Pune", y:  330000  },
+          { label: "Ambegaon", y:  2200000  },
+					{label: "Baramadi", y:  180000  },
+					{ label: "Bhor", y:  800000 },
+					{label: "Haveli", y:  563000,  },
+					{ label: "Junnar", y:  376000  },
+					{ label: "Maval", y:  336000  },
+					{ label: "Pune", y:  330000  }
 
 				]
 			}
