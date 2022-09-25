@@ -22,57 +22,47 @@ public class UserList {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int user_Id;
 	
-	@Column(name = "first_Name")
 	private String first_Name;
 	
-	@Column(name = "middle_Name")
 	private String middle_Name;
 	
-	@Column(name = "last_Name")
 	private String last_Name;
 	
-	@Column(name = "mobile_No")
 	private long mobile_No;
 	
 	@NotEmpty
 	@Email
-	@Column(name = "email_Id")
-	private String email_Id;
+	private String email;
 	
-	@Column(name = "d_o_b")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date d_o_b;
 	
-	@Column(name = "joining_Date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date joining_Date;
-	
-	@Column(name = "group_Name")
+
 	private String group_Name;
 	
 	@NotEmpty 
 	@Size(min = 8, message = "password should have atleast 8 characters")
-	@Column(name = "password")
 	private String password;
-	
-	@Column(name = "gender")
+
 	private String gender;
-	
-	@Column(name = "maritual_Status")
+
 	private String maritual_Status;
 	
 	public UserList() {
 		
 	}
 	
-	public UserList(String first_Name, String middle_Name, String last_Name, long mobile_No, String email_Id,
+	
+	public UserList(String first_Name, String middle_Name, String last_Name, long mobile_No, String email,
 			Date d_o_b, Date joining_Date, String group_Name, String password, String gender, String maritual_Status) {
 		super();
 		this.first_Name = first_Name;
 		this.middle_Name = middle_Name;
 		this.last_Name = last_Name;
 		this.mobile_No = mobile_No;
-		this.email_Id = email_Id;
+		this.email = email;
 		this.d_o_b = d_o_b;
 		this.joining_Date = joining_Date;
 		this.group_Name = group_Name;
@@ -110,11 +100,11 @@ public class UserList {
 	public void setMobile_No(long mobile_No) {
 		this.mobile_No = mobile_No;
 	}
-	public String getEmail_Id() {
-		return email_Id;
+	public String getEmail() {
+		return email;
 	}
-	public void setEmail_Id(String email_Id) {
-		this.email_Id = email_Id;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public Date getD_o_b() {
 		return d_o_b;

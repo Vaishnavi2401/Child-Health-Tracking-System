@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.persistence.EntityManager;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -52,7 +53,7 @@ public class UserListService {
 		userlist.setMiddle_Name(userlistDetails.getMiddle_Name());
 		userlist.setLast_Name(userlistDetails.getLast_Name());
 		userlist.setMobile_No(userlistDetails.getMobile_No());
-		userlist.setEmail_Id(userlistDetails.getEmail_Id());
+		userlist.setEmail(userlistDetails.getEmail());
 		userlist.setD_o_b(userlistDetails.getD_o_b());
 		userlist.setJoining_Date(userlistDetails.getJoining_Date());
 		userlist.setGroup_Name(userlistDetails.getGroup_Name());
@@ -73,33 +74,37 @@ public class UserListService {
 	}
 	
 	
-//	// check mail and pass
-//		public UserList findUserByEmailAndPassword(UserList userlist)throws UserNotFoundException {
-//			try {
-//				UserList user = userListRepository.findByEmail(userlist.getEmail_Id());
-//				String rawPassword = userlist.getPassword();
-//				if (userlist != null && userlist.getEmail_Id().equals(user.getEmail_Id())
+	// check mail and pass
+		public UserList findUserByEmailAndPassword(UserList userlist)throws UserNotFoundException {
+			try {
+				UserList user = userListRepository.findByEmail(userlist.getEmail());
+				String rawPassword = userlist.getPassword();
+				if (user != null && userlist.getEmail().equals(user.getEmail())
+						&& passwordEncoder.matches(rawPassword, user.getPassword())) {
+					UserList Result = user;
+					return Result;
+				}
+				throw new UserNotFoundException("Invalid email or password !, Try again.");
+			} catch (Exception e) {
+				throw new UserNotFoundException(e.getMessage());
+			}
+
+			
+			
+			
+			
+//				if (user != null && userlist.getEmail().equals(user.getEmail())
 //						&& passwordEncoder.matches(rawPassword, user.getPassword())) {
 //					UserList Result = user;
-//					return Result;
-//				}
-//				throw new UserNotFoundException("Invalid email or password !, Try again.");
-//			} catch (Exception e) {
-//				throw new UserNotFoundException(e.getMessage());
-//			}
-//
-//		}
-	
-	
-	//@Override
-	public static UserList userlist(String email, String password) {
-
-		Optional<UserList> optional = UserListRepository.findByEmailAndPassword(email,password);
-
-		return optional.orElseThrow(()-> new UserNotFoundException("Invalid email or password !!!!!!!!!!"));
-		
-	}
-
+//					  return Result;
+//					} 
+//					 
+//					else
+//					{
+//					throw new UserNotFoundException("Invalid email or password !, Try again.");
+//					} 
+//				
+		}
 	
 }
 

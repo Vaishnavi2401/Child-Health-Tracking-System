@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.EntityManager;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -36,7 +38,6 @@ public class UserListController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	
 	//get all UserList
 	@GetMapping("/userlist")
 	public List<UserList> getAllUsers(){
@@ -48,6 +49,8 @@ public class UserListController {
 		public UserList createUsers(@Valid @RequestBody UserList userlist) {
 			return userListService.save(userlist);
 		}
+		
+		
 //		@PostMapping("userlist")
 //		public ResponseEntity<UserList> createUser(@Valid @RequestBody UserList userlist){
 //			UserList savedUser = userService.createUser(userlist);
@@ -79,22 +82,20 @@ public class UserListController {
 		}
 		
 		// Login to the portal
-//		@PostMapping("/signin")
-//		public @ResponseBody ResponseEntity<?> signIn(@RequestBody UserList userlist) throws UserNotFoundException{
-//			{
-//				UserList user = userListService.findUserByEmailAndPassword(userlist);
-//				if (user == null)
-//					return Response.error("User not found");
-//				return Response.success(user);
-//			}
-//		}
-//		
-//		
-		// 2.loginAdmin
 		@PostMapping("/login")
-		public UserList userlist(@RequestBody UserList userlist) {
-			return UserListService.userlist(userlist.getEmail_Id(), userlist.getPassword());
-		}
+		public @ResponseBody ResponseEntity<?> signIn(@RequestBody UserList userlist) throws UserNotFoundException{
+			{
+				UserList user = userListService.findUserByEmailAndPassword(userlist);
+				if (user == null)
+					
+					return new ResponseEntity<>("User not found!", HttpStatus.NOT_FOUND);
+				
+				return ResponseEntity.ok(user);
+					
+//					return ResponseEntity.error("User not found");
+//				return Response.success(user);
+			}
 		
+		}
 
 }
