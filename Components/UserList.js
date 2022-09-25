@@ -1,6 +1,6 @@
 import './App.css';
 import './table.css';
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import Header from './Header';
 import TemporaryDrawer from './navbar';
@@ -15,25 +15,34 @@ import {TableBody, IconButton, InputBase,
         TableCell, TableContainer, TableHead, 
         TableRow, Paper, Table, TablePagination, tableCellClasses} from '@mui/material';
 //import bootstrap from 'bootstrap';
-import UserService from '../Services/UserService';
+
+const data = [
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+{ SrNo: 1, UserID: "EMP-1", UserName: "Akash", MobileNo: 9730193648, Email: "agthakur5@gmail.com", Group: "UG-Admin", Status: "active", Actions: 1 },
+]
 
 export default function UserList() {
 
-  const [User, setUser] = useState([]);
-  
-  const navLog = useNavigate();
-
-  useEffect(() => {
-            UserService.getUser().then((response) => {
-            setUser(response.data)
-             console.log(response.data);
-            }).catch(error =>{
-             console.log(error);
-            })
-   },[])
-
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -44,22 +53,8 @@ export default function UserList() {
     setPage(0);
   };
 
-  const [value, setValue] = useState('');
-  const [tableFilter, setTableFilter] = useState([]);
-
-    const filterData = (e) => {
-      if(e.target.value != ""){
-        setValue(e.target.value);
-        const filterTable = User.filter(o => Object.keys(o).some(k=>
-          String(o[k]).toLowerCase().includes(e.target.value.toLowerCase())
-          ));
-          setTableFilter([...filterTable])
-      } else {
-        setValue(e.target.value);
-        setUser([...User])
-      }  
-    }  
-
+	
+    const navLog = useNavigate();
 	return (
         <div>
         <TemporaryDrawer/>
@@ -85,12 +80,13 @@ export default function UserList() {
               <Col sm={8} className="search-col">
               <InputBase
               placeholder="Search User"
-              value={value}
-              onChange={filterData}
               inputProps={{ 'aria-label': 'search user' }}
               />
                </Col>
                <Col sm={4}>
+              <IconButton type="button" aria-label="search" className = 'search-icon'>
+              <SearchIcon />
+              </IconButton>
               </Col>
               </Row>
               </div>
@@ -103,6 +99,7 @@ export default function UserList() {
         <Table stickyHeader aria-label="user list table" className="Table">
           <TableHead className='head-table'>
             <TableRow>
+              <TableCell >Sr. No</TableCell>
               <TableCell >User ID</TableCell>
               <TableCell>User Name</TableCell>
               <TableCell>Mobile No</TableCell>
@@ -113,41 +110,27 @@ export default function UserList() {
             </TableRow>
           </TableHead>
           <TableBody>
-          {value.length > 0 ? tableFilter.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((data) => (<TableRow key={data.user_Id}>
-            <TableCell className='col-table'>{data.user_Id}</TableCell>
-            <TableCell className='col-table'>{data.first_Name}</TableCell>
-            <TableCell className='col-table'>{data.mobile_No}</TableCell>
-            <TableCell className='col-table'>{data.email_Id}</TableCell>
-            <TableCell className='col-table'>{data.group_Name}</TableCell>
-            <TableCell className='col-table'>{data.status}</TableCell>
+          {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (<TableRow key={row.UserID}>
+            <TableCell className='col-table'>{row.SrNo}</TableCell>
+            <TableCell className='col-table'>{row.UserID}</TableCell>
+            <TableCell className='col-table'>{row.UserName}</TableCell>
+            <TableCell className='col-table'>{row.MobileNo}</TableCell>
+            <TableCell className='col-table'>{row.Email}</TableCell>
+            <TableCell className='col-table'>{row.Group}</TableCell>
+            <TableCell className='col-table'>{row.Status}</TableCell>
             <TableCell className='col-table'>
             <EditIcon className="icon-edit"/>
             <VisibilityIcon className="icon-view"/>
             <DeleteIcon className="icon-delete"/>
             </TableCell>
-          </TableRow>))
-          :
-          User.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((data) => (<TableRow key={data.user_Id}>
-            <TableCell className='col-table'>{data.user_Id}</TableCell>
-            <TableCell className='col-table'>{data.first_Name}</TableCell>
-            <TableCell className='col-table'>{data.mobile_No}</TableCell>
-            <TableCell className='col-table'>{data.email_Id}</TableCell>
-            <TableCell className='col-table'>{data.group_Name}</TableCell>
-            <TableCell className='col-table'>{data.status}</TableCell>
-            <TableCell className='col-table'>
-            <EditIcon className="icon-edit"/>
-            <VisibilityIcon className="icon-view"/>
-            <DeleteIcon className="icon-delete"/>
-            </TableCell>
-          </TableRow>)) 
-        }
+          </TableRow>))}
             
           </TableBody>
         </Table>
       <TablePagination
         rowsPerPageOptions={[5, 10, 25, 100, 500]}
         component="div"
-        count={User.length}
+        count={data.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

@@ -21,7 +21,7 @@ const Vision = () => {
     <ScreeningNav/>
     
     <div>
-    <h4 className='page-screeninghead'>Vision Screening</h4>
+    <h4 className='page-head'>Vision Screening</h4>
     <Paper className="form-add">
         <Box
        component="form"
@@ -102,7 +102,8 @@ const Vision = () => {
       </Box>
       </Paper>
     
-      <button type="submit" className="btn btn-primary save-button">Save</button>
+      <button type="submit" className="btn btn-primary save-button">Accept</button>
+      <button type="submit" className="btn btn-primary back-button">Back</button>
     </div>
 
     </div>

@@ -23,7 +23,7 @@ const Psychological = () => {
     <ScreeningNav/>
     
     <div>
-    <h4 className='page-screeninghead'>Psychological Screening</h4>
+    <h4 className='page-head'>Psychological Screening</h4>
     <Paper className="form-add">
         <Box
        component="form"
@@ -301,7 +301,7 @@ const Psychological = () => {
       <TextField id="outlined-basic" label="Any Other *" variant="outlined" />
       </Box>
       </Paper>
-      <button type="submit" className="btn btn-primary save-button">Save</button>   
+          
     </div>
     </div>
   );

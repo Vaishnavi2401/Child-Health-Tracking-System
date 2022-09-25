@@ -20,7 +20,7 @@ const Auditory = () => {
     <ScreeningNav/>
 
     <div>
-        <h4 className='page-screeninghead'>Auditory Screening</h4>
+        <h4 className='page-head'>Auditory Screening</h4>
         <div>
           <Row>
           <Col sm={6}>
@@ -40,7 +40,7 @@ const Auditory = () => {
          </Col>
 
          <Col sm={6}>
-         <Paper>
+         <Paper className="form-add">
         <Box
        component="form"
          sx={{
@@ -66,7 +66,8 @@ const Auditory = () => {
          </Col>
          </Row>
 
-         <button type="submit" className="btn btn-primary save-button">Save</button>
+         <button type="submit" className="btn btn-primary save-button">Accept</button>
+         <button type="submit" className="btn btn-primary back-button">Back</button>
 
          </div>
          </div>

@@ -41,8 +41,6 @@ import Healthcard_Dental from './Healthcard_Dental';
 import Healthcard_Vision from './Healthcard_Vision';
 import Healthcard_Psychological from './Healthcard_Psychological';
 import Report from './Report';
-import AddSchool from './AddSchool';
-import SchoolList from './SchoolList';
 
 function App() {
   return (
@@ -76,9 +74,7 @@ function App() {
       <Route  exact path="/Healthcard_Dental" element = {<Healthcard_Dental/>}/>
       <Route  exact path="/Healthcard_Vision" element = {<Healthcard_Vision/>}/>
       <Route  exact path="/Healthcard_Psychological" element = {<Healthcard_Psychological/>}/>
-      <Route  exact path="/Report" element = {<Report/>}/>
-      <Route  exact path="/AddSchool" element = {<AddSchool/>}/>   
-      <Route exact path="/SchoolList" element = {<SchoolList/>}/>      
+      <Route  exact path="/Report" element = {<Report/>}/>      
 
       </Routes>
       </Router> 

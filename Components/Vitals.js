@@ -14,9 +14,11 @@ const Vitals = () => {
 
     <TemporaryDrawer/>
     <ScreeningNav/>
-    <h4 className='page-screeninghead'>Vital Information</h4>
+    <h4 className='page-head'>Vital Information</h4>
         <div>
-          
+          <Row>
+          <Col sm={6}>
+
           <Paper className="form-add">
         <Box
        component="form"
@@ -27,16 +29,19 @@ const Vitals = () => {
           autoComplete="off">
             
             <TextField id="outlined-basic" label="Pulse-Beat/min *" variant="outlined" />
-            <TextField id="outlined-basic" label="BP-mm-Hg(sys) *" variant="outlined" />
-            <TextField id="outlined-basic" label="BP-mm-Hg(dys) *" variant="outlined" />
+            <TextField id="outlined-basic" label="BP-mm-Hg *" variant="outlined" />
             <TextField id="outlined-basic" label="RR-per min *" variant="outlined" />
-            <TextField id="outlined-basic" label="O2 Sats- % *" variant="outlined" />
             <TextField id="outlined-basic" label="HB *" variant="outlined" />
             <TextField id="outlined-basic" label="Temperature *" variant="outlined" />
+
+           
           </Box>
           </Paper>
-         
-          <button type="submit" className="btn btn-primary save-button">Save</button>
+          </Col>
+          </Row>
+
+          <button type="submit" className="btn btn-primary save-button">Accept</button>
+          <button type="submit" className="btn btn-primary back-button">Back</button>
           </div>
 
     </div>
