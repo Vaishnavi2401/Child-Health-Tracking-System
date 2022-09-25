@@ -13,38 +13,70 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import SchoolService from '../Services/SchoolService';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 //import bootstrap from 'bootstrap';
 
 export default function AddSchool(){
 
-   const [registrationNo, setRegistrationNo] = useState(''); 
    const [contactNo, setContactNo] = useState('');
    const [schoolName, setSchoolName] = useState('');  
    const [schoolEmail, setSchoolEmail] = useState('');
-   const [block, setBlock] = useState('');             
+   const [block, setBlock] = useState('');
+   const {registrationNo} = useParams();            
      
    const navigate = useNavigate();
 
    const saveSchool = (e) => {   
         e.preventDefault();
-        const School = {registrationNo, contactNo, schoolName, schoolEmail, block};
+        const School = {contactNo, schoolName, schoolEmail, block};
 
-        SchoolService.postSchool(School).then((response) => {
-          console.log(response.data);
-          navigate('/SchoolList');
-       }).catch(error => {
-          console.log(error);
-        })     
-  }                   
+        if(registrationNo){
+            SchoolService.UpdateSchool(registrationNo, School).then((response) => {
+            console.log(response.data);
+            navigate('/SchoolList');
+             }).catch(error => {
+            console.log(error);
+          }) 
+        }
+        else{
+             SchoolService.postSchool(School).then((response) => {
+             console.log(response.data);
+             navigate('/SchoolList');
+           }).catch(error => {
+            console.log(error);
+          })   
+        }
+          
+  }  
+  
+  useEffect(() => {
+        SchoolService.getSchoolByID(registrationNo).then((response) => {
+          setContactNo(response.data.contactNo)
+          setSchoolName(response.data.schoolName)
+          setSchoolEmail(response.data.schoolEmail)
+          setBlock(response.data.block)
+        })
+  },[])
+
+  const title = () =>{
+
+    if(registrationNo){
+      return <h4 className='page-head'>Update School</h4>
+    }
+    else{
+      return <h4 className='page-head'>Add New School</h4>
+    }
+  }
 
   return (                  
     <div>
     <TemporaryDrawer/>
       <div>
-        <h4 className='page-head'>Add New School</h4>
+        {
+          title()
+        }
         <div>
           <Paper className="form-add">
         <Box
@@ -56,7 +88,7 @@ export default function AddSchool(){
           autoComplete="off"
           > 
 
-<TextField label="Registration No" value ={registrationNo} name = "registrationNo" onChange={(e) => setRegistrationNo(e.target.value)} variant="outlined" />
+          <TextField label="Registration No" value ={registrationNo} name = "registrationNo" InputProps={{ readOnly: true,}} variant="outlined" />
          <TextField label="Contact No" value ={contactNo} name = "contactNo" onChange={(e) => setContactNo(e.target.value)} variant="outlined" />
          <TextField label="School Name" value ={schoolName} name = "schoolName" onChange={(e) => setSchoolName(e.target.value)} variant="outlined" />
          <TextField label="School Email" value ={schoolEmail} name = "schoolEmail" onChange={(e) => setSchoolEmail(e.target.value)} variant="outlined" />

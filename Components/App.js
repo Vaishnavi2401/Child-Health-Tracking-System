@@ -41,6 +41,9 @@ import Healthcard_Dental from './Healthcard_Dental';
 import Healthcard_Vision from './Healthcard_Vision';
 import Healthcard_Psychological from './Healthcard_Psychological';
 import Report from './Report';
+import AddSchool from './AddSchool';
+import SchoolList from './SchoolList';
+import UpdateChild from './UpdateChild';
 
 function App() {
   return (
@@ -51,16 +54,16 @@ function App() {
       <Route  exact path="/Dashboard" element = {<Dashboard/>}/> 
       <Route  exact path="/UserList" element = {<UserList/>}/> 
       <Route  exact path="/RegisterUser" element = {<RegisterUser/>}/>
-      <Route  exact path="/BasicScreening" element = {<BasicScreening/>}/> 
-      <Route  exact path="/BasicInformation" element = {<BasicInformation/>}/>
-      <Route  exact path="/Auditory" element = {<Auditory/>}/> 
-      <Route  exact path="/BMIS" element = {<BMIS/>}/>
-      <Route  exact path="/Dental" element = {<Dental/>}/>   
-      <Route  exact path="/FamilyInfo" element = {<FamilyInfo/>}/> 
-      <Route  exact path="/Immunisation" element = {<Immunisation/>}/>   
-      <Route  exact path="/Psychological" element = {<Psychological/>}/>
-      <Route  exact path="/Vision" element = {<Vision/>}/>     
-      <Route  exact path="/Vitals" element = {<Vitals/>}/>
+      <Route  exact path="/BasicScreening/:child_id" element = {<BasicScreening/>}/> 
+      <Route  exact path="/BasicInformation/:child_id" element = {<BasicInformation/>}/>
+      <Route  exact path="/Auditory/:child_id" element = {<Auditory/>}/> 
+      <Route  exact path="/BMIS/:child_id" element = {<BMIS/>}/>
+      <Route  exact path="/Dental/:child_id" element = {<Dental/>}/>   
+      <Route  exact path="/FamilyInfo/:child_id" element = {<FamilyInfo/>}/> 
+      <Route  exact path="/Immunisation/:child_id" element = {<Immunisation/>}/>   
+      <Route  exact path="/Psychological/:child_id" element = {<Psychological/>}/>
+      <Route  exact path="/Vision/:child_id" element = {<Vision/>}/>     
+      <Route  exact path="/Vitals/:child_id" element = {<Vitals/>}/>
       <Route  exact path="/AddNewChild" element = {<AddNewChild/>}/>
       <Route  exact path="/ChildList" element = {<ChildList/>}/>    
       <Route  exact path="/ScreeningList" element = {<ScreeningList/>}/> 
@@ -74,7 +77,12 @@ function App() {
       <Route  exact path="/Healthcard_Dental" element = {<Healthcard_Dental/>}/>
       <Route  exact path="/Healthcard_Vision" element = {<Healthcard_Vision/>}/>
       <Route  exact path="/Healthcard_Psychological" element = {<Healthcard_Psychological/>}/>
-      <Route  exact path="/Report" element = {<Report/>}/>      
+      <Route  exact path="/Report" element = {<Report/>}/>
+      <Route  exact path="/AddSchool" element = {<AddSchool/>}/>   
+      <Route exact path="/SchoolList" element = {<SchoolList/>}/>      
+      <Route  exact path="/UpdateChild/:child_id" element = {<UpdateChild/>}/>
+      <Route  exact path="/AddSchool/:registrationNo" element = {<AddSchool/>}/>
+      <Route  exact path="/RegisterUser/:user_Id" element = {<RegisterUser/>}/>   
 
       </Routes>
       </Router> 
