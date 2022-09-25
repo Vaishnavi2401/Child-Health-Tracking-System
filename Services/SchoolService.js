@@ -12,8 +12,16 @@ class SchoolService{
         return axios.post(SCHOOL_API_BASE_URL, School);
     }
 
-    getSchoolByID(SchoolId){
-        return axios.get(`http://localhost:8080/api/v1/schoollist/${SchoolId}`);
+    getSchoolByID(registrationNo){
+        return axios.get(SCHOOL_API_BASE_URL+'/'+registrationNo);
+    }
+
+    deleteSchoolByID(registrationNo){
+        return axios.delete(SCHOOL_API_BASE_URL+'/'+registrationNo);
+    }
+
+    UpdateSchool(registrationNo, School){
+        return axios.put(SCHOOL_API_BASE_URL+'/'+registrationNo, School);
     }
 }
 

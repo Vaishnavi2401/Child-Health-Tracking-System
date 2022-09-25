@@ -12,8 +12,16 @@ class UserService{
         return axios.post(USER_API_BASE_URL, User);
     }
 
-    getUserByID(UserId){
-        return axios.get(`http://localhost:8080/api/v1/userlist/${UserId}`);
+    getUserByID(user_Id){
+        return axios.get(USER_API_BASE_URL+'/'+user_Id);
+    }
+
+    deleteUserByID(user_Id){
+        return axios.delete(USER_API_BASE_URL+'/'+user_Id);
+    }
+
+    UpdateUser(user_Id, User){
+        return axios.put(USER_API_BASE_URL+'/'+user_Id, User);
     }
 }
 
